@@ -263,3 +263,67 @@ body {
     font-size: 1rem;
   }
 }
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .left-section {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .right-section {
+    width: 100%;
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: center;
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .header-section h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .support {
+    text-align: center;
+  }
+
+  .callback-btn {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .plan-card {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .plan-card button {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+}
