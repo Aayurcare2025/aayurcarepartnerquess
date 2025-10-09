@@ -190,3 +190,76 @@ body {
 .plan-card button:hover {
   background-color: #001a66;
 }
+.basicplan {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #0a2a66;
+}
+
+/* Main Title */
+.basicplan h1 {
+  text-align: center;
+  color: #002b80;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #0033cc;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* Grid Layout */
+.basicplan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Each Benefit Box */
+.basicplan-box {
+  background: #f2f6ff;
+  border-left: 6px solid #0033cc;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 80, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.basicplan-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 80, 0.2);
+}
+
+/* Box Titles */
+.basicplan-box h2 {
+  color: #0033cc;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+/* Box Paragraphs */
+.basicplan-box p {
+  font-size: 1.05rem;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .basicplan {
+    padding: 15px;
+  }
+
+  .basicplan h1 {
+    font-size: 1.8rem;
+  }
+
+  .basicplan-box h2 {
+    font-size: 1.3rem;
+  }
+
+  .basicplan-box p {
+    font-size: 1rem;
+  }
+}
