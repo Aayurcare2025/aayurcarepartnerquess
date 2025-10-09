@@ -78,6 +78,7 @@ function Basicplan() {
         <div className="basicplan-box">
           <h2>Travel Benefits</h2>
           <p>Up to 25% discount on train tickets</p>
+          <p> Up to 15% discount on bus tickets</p>
         </div>
       </div>
     </div>

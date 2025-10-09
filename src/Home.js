@@ -46,7 +46,7 @@ function Home() {
           <div className="plan-card premium">
             <h3>Premium Plan</h3>
             <p>₹400 / month</p>
-            <button>Select Plan</button>
+            <button onClick={()=>navigate("/PremiumPlan")}>Select Plan</button>
           </div>
         </div>
       </div>
