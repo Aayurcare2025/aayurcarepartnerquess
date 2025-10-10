@@ -3,7 +3,7 @@ import "./App.css";
 function Basicplan() {
   return (
     <div className="basicplan">
-      <h1>Basic Plan - 400 Benefits</h1>
+      <h1>Core Plan -200 Benefits</h1>
 
       <div className="basicplan-grid">
         <div className="basicplan-box">

@@ -1,7 +1,7 @@
 import "./App.css";
 import Aayurcareicon from "./Images/aayuricon.jpg";
 import { useNavigate } from "react-router-dom";
-
+// import {Quess} from "./Images/"
 function Home() {
   const navigate = useNavigate();
 
@@ -11,26 +11,27 @@ function Home() {
         <div className="logo">
           <img src={Aayurcareicon} alt="" />
           <span className="brand-name">AayurCare</span>
+          <li onClick={() => navigate("/claims")}>Claims</li>
         </div>
       </nav>
 
       <div className="main-content">
         <div className="left-section">
           <header className="header-section">
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+             {/* <img src={Aayurcareicon} alt="" /> */}
+             {/* <img src={Quess}></img> */}
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
             <h1>AayurCare in Partnership with Quess</h1>
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
           </header>
           <section className="support">
             <p>Need help? Reach out to our customer support team.</p>
-            <button className="callback-btn">Request a Callback</button>
+            <button onClick={() => navigate("/CallbackForm")} className="callback-btn">Request a Callback</button>
           </section>
         </div>
 
@@ -50,6 +51,61 @@ function Home() {
           </div>
         </div>
       </div>
+
+
+      
+<footer className="footer">
+  {/* Left side */}
+  <div className="footer-left">
+    <h2 className="footer-logo">Aayur Care</h2>
+    <p >
+      Providing smart and hassle-free medical reimbursement for a healthier you.
+    </p>
+    <p>Copyright@2025 Aayurcare-All Right Reserved</p>
+    <p>Powered by Aayur Enterprises</p>
+  </div>
+
+      <div className="footer-middle">
+       <p>Partnered with Vibe Insurance Broking </p>
+        <p>IRDAI License No. 904</p>
+        
+      </div>
+
+  {/* Right side */}
+  <div className="footer-right">
+    {/* Quick Links */}
+    <div >
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+  
+    </div>
+    {/* Legal */}
+    <div className="footer-section">
+      <h3>Legal</h3>
+      <ul>
+        <li className="footer-link" onClick={() => navigate("/websiteterms")}>Website Terms</li>
+        <br></br>
+    <li className="footer-link" onClick={() =>navigate("/aayurcaretermsandcondition")}>AayurCare Terms & Condition</li>
+    <br></br>
+   <li className="footer-link" onClick={()=>navigate("refundandcancellation")}>Refund and Cancellation Policy</li>
+    <br></br>
+  <li className="footer-link" onClick={()=>navigate("disclaimer")}>Disclaimer</li>
+       
+      </ul>
+    </div>
+
+
+    {/* <div className="footer-down">
+
+    
+
+    </div> */}
+  </div>
+</footer>
     </div>
   );
 }

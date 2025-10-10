@@ -1,7 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background-color: #e6f0ff;
+  background-color: white;
   color: #0a2a66;
 }
 
@@ -14,6 +14,20 @@ body {
   color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 50, 0.3);
 }
+
+.navbar li{
+  right:50px;
+}
+
+.navbar li {
+  padding:15px 1000px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  font-weight:bold;
+
+}
+
 
 .logo {
   display: flex;
@@ -47,6 +61,11 @@ body {
   margin-right: 40px;
 }
 
+/* 
+.header-section
+{
+  padding:120px;
+} */
 .header-section h1 {
   color: #0033cc;
   font-size: 2rem;
@@ -80,7 +99,7 @@ body {
 
 /* Support */
 .support {
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .support p {
@@ -193,7 +212,7 @@ body {
 .basicplan {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 0px;
   font-family: "Poppins", sans-serif;
   color: #0a2a66;
 }
@@ -325,5 +344,440 @@ body {
 @media (max-width: 768px) {
   body {
     padding: 0 10px;
+  }
+}
+.callback-form-container {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.callback-form-container h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.callback-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.callback-form-container label {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.callback-form-container input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.callback-form-container input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.success-message {
+  color: green;
+  font-weight: 600;
+  text-align: center;
+}
+.callback-form-container {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.callback-form-container h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.callback-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.callback-form-container label {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.callback-form-container input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.callback-form-container input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.success-message {
+  color: green;
+  font-weight: 600;
+  text-align: center;
+}
+.claims-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  border: 2px solid #002b80;
+}
+
+.claims-container h2 {
+  color: #002b80;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.claims-container p {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #555;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.checkbox-group label {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.claims-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  border: 2px solid #002b80;
+}
+
+.claims-container h2 {
+  color:#002b80;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.claims-container p {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #555;
+}
+ .form-title {
+    color: #002b80;
+    font-size: 26px;
+    margin-bottom: 5px;
+  }
+
+  .form-subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+  }
+
+  .step.active {
+    background: #002b80;
+  }
+
+  .arrow {
+    margin: 0 10px;
+    font-size: 18px;
+    color: gray;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-container label {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .form-container input,
+  .form-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 20px;
+  }
+
+  .phone-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .phone-input span {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 15px;
+  }
+
+  .submit-btn {
+    margin-top: 20px;
+    padding: 12px;
+    background:#002b80;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background: #002b80;
+  }
+  .form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .form-title {
+    color: #009688;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .form-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+  }
+
+  .form-input {
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background: #002b80;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .btn:hover {
+    background: #002b80;
+  }
+
+  .back-btn {
+    background: #ccc;
+    color: #000;
+  }
+
+  .back-btn:hover {
+    background: #999;
+  }
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.back-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #002b80;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.footer-links {
+   color: white;           /* ensures the link is white */
+  text-decoration: none;  /* removes underline */
+  margin: 0 10px;         /* spacing between links */
+  transition: color 0.3s;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #222; /* Dark background */
+  color: #ddd;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  max-width: 400px;
+}
+
+.footer-logo {
+  font-size: 2rem; /* Bigger AayurCare */
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+.footer-middle
+{
+  padding-top:30px;
+  justify-content:center;
+  padding-left:150px;
+}
+
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  min-width: 150px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff; /* White headings */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #4CAF50; /* Green hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+    margin-top: 2rem;
   }
 }
