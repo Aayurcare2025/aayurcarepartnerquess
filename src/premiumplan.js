@@ -90,7 +90,10 @@ function PremiumPlan() {
           <p>Up to 25% discount on train tickets</p>
           <p>Up to 15% discount on bus tickets</p>
         </div>
+
+
       </div>
+              <button className="buynow">Buy Now</button>
     </div>
   );
 }

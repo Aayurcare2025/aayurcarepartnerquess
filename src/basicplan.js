@@ -2,15 +2,17 @@ import "./App.css";
 
 function Basicplan() {
   return (
+    //basic plan data
     <div className="basicplan">
       <h1>Plan Benefits Overview</h1>
-
+    
       <div className="basicplan-grid">
+        
         <div className="basicplan-box">
           <h2>Doctor Consultation & Medical Services</h2>
           <p>Free monthly teleconsultation with a General Physician</p>
           <p>Free consultation with Nutritionists and Physiotherapists</p>
-          <p>5 consultations with Mental Health Experts</p>
+          <p>consultations with Mental Health Experts</p>
           <p>Second opinion for any planned hospitalization</p>
           <p>Yoga Consultation and Therapy discounts up to 15-30%</p>
         </div>
@@ -82,7 +84,7 @@ function Basicplan() {
         </div>
       </div>
 
-      <h1>Buy Now</h1>
+     <button className="buynow">Buy Now</button>
     </div>
   );
 }
