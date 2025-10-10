@@ -1,7 +1,8 @@
 import "./App.css";
 import Aayurcareicon from "./Images/aayuricon.jpg";
 import { useNavigate } from "react-router-dom";
-// import {Quess} from "./Images/"
+import Quess from "./Images/q1.png"
+
 function Home() {
   const navigate = useNavigate();
 
@@ -19,14 +20,9 @@ function Home() {
         <div className="left-section">
           <header className="header-section">
              {/* <img src={Aayurcareicon} alt="" /> */}
-             {/* <img src={Quess}></img> */}
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-             <br></br>
-            <h1>AayurCare in Partnership with Quess</h1>
+             <img  className="quess"src={Quess} alt=""></img>
+             
+            <h1>Welcome to Your Health Hub</h1>
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
           </header>
           <section className="support">
@@ -40,14 +36,16 @@ function Home() {
 
           <div className="plan-card basic">
             <h3>Basic Plan</h3>
-            <p>₹200 / month</p>
-            <button onClick={() => navigate("/Basicplan")}>Select Plan</button>
+            <p>₹200 /- month</p>
+            <p>Total coverage upto ₹2000 /-</p>
+            <button className="b1"onClick={() => navigate("/Basicplan")}>Select Plan</button>
           </div>
 
           <div className="plan-card premium">
             <h3>Premium Plan</h3>
-            <p>₹400 / month</p>
-            <button onClick={()=>navigate("/PremiumPlan")}>Select Plan</button>
+            <p>₹400 /- month</p>
+            <p>Total coverage upto ₹4100 /-</p>
+            <button className="b1" onClick={()=>navigate("/PremiumPlan")}>Select Plan</button>
           </div>
         </div>
       </div>

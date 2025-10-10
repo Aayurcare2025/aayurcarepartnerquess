@@ -220,6 +220,7 @@ body {
 /* Main Title */
 .basicplan h1 {
   text-align: center;
+
   color: #002b80;
   font-size: 2.2rem;
   margin-bottom: 40px;
@@ -295,7 +296,8 @@ body {
 
   .right-section {
     width: 100%;
-    padding: 20px;
+    height:50%;
+    padding: 10px;
   }
 }
 @media (max-width: 768px) {
@@ -780,4 +782,8 @@ body {
     justify-content: center;
     margin-top: 2rem;
   }
+}
+.b1 
+{
+  width:200px;
 }

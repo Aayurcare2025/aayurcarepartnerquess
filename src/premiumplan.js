@@ -3,7 +3,7 @@ import "./App.css";
 function PremiumPlan() {
   return (
     <div className="basicplan">
-      <h1>Edge Plan -400 Benefits Benefits</h1>
+      <h1>Plan Benefits Overview</h1>
 
       <div className="basicplan-grid">
         {/* Doctor Consultation & Medical Services */}

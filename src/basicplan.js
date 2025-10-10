@@ -3,7 +3,7 @@ import "./App.css";
 function Basicplan() {
   return (
     <div className="basicplan">
-      <h1>Core Plan -200 Benefits</h1>
+      <h1>Plan Benefits Overview</h1>
 
       <div className="basicplan-grid">
         <div className="basicplan-box">
@@ -81,6 +81,8 @@ function Basicplan() {
           <p> Up to 15% discount on bus tickets</p>
         </div>
       </div>
+
+      <h1>Buy Now</h1>
     </div>
   );
 }
