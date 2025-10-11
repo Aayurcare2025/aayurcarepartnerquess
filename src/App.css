@@ -9,6 +9,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
+    justify-content: space-between;
   background-color: #002b80;
   padding: 8px 30px;
   color: white;
@@ -30,6 +31,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .logo img {
@@ -47,8 +49,8 @@ body {
 .nav-links li {
   cursor: pointer;
   font-weight: bold;
-  padding: 10px 900px;
-  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 6px;
   transition: background-color 0.3s ease;
   white-space: nowrap; /* keep text on one line */
 }

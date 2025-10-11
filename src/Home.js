@@ -12,11 +12,12 @@ function Home() {
         <div className="logo">
           <img src={Aayurcareicon} alt="" />
           <span className="brand-name">AayurCare</span>
+          </div> 
+
+
             <ul className="nav-links">
-    <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
-  </ul>
-          {/* <li onClick={() => navigate("/claims")}>Submit Your Claims</li> */}
-        </div>  
+          <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
+      </ul>
       </nav>
 
       <div className="main-content">
