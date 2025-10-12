@@ -710,11 +710,12 @@ body {
   cursor: pointer;
 }
 
-.footer-links {
-   color: white;           /* ensures the link is white */
-  text-decoration: none;  /* removes underline */
-  margin: 0 10px;         /* spacing between links */
-  transition: color 0.3s;
+.footer-link{
+  color: #007bff;         
+  cursor: pointer;         
+  text-decoration: underline; 
+  display: inline-block;   
+  transition: color 0.2s;  
 }
 
 /* Footer */

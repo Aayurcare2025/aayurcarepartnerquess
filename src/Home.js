@@ -67,11 +67,11 @@ function Home() {
     <p>Powered by Aayur Enterprises</p>
   </div>
 
-      <div className="footer-middle">
+      {/* <div className="footer-middle">
        <p>Partnered with Vibe Insurance Broking </p>
         <p>IRDAI License No. 904</p>
         
-      </div>
+      </div> */}
 
   {/* Right side */}
   <div className="footer-right">
@@ -96,7 +96,8 @@ function Home() {
    <li className="footer-link" onClick={()=>navigate("refundandcancellation")}>Refund and Cancellation Policy</li>
     <br></br>
   <li className="footer-link" onClick={()=>navigate("disclaimer")}>Disclaimer</li>
-       
+      <br></br> 
+        <li className="footer-link" onClick={()=>navigate("PrivacyPolicy")}>Privacy Policy</li>
       </ul>
     </div>
 

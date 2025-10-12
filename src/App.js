@@ -7,6 +7,7 @@ import AayurcareTerms from "./Aayurcaretermsandcondition";
 import WebisteTerms from "./webisteterms";
 import Disclaimer from "./Disclaimer";
 import RefundPolicy from "./Refundpolicy";
+import PrivacyPolicy from "./Privacypolicy";
 function App() {
   return (
     <Routes>
@@ -18,6 +19,7 @@ function App() {
       <Route path="/aayurcaretermsandcondition" element={<AayurcareTerms/>}></Route>
       <Route path="/refundandcancellation" element={<RefundPolicy/>}></Route>
       <Route path="/WebsiteTerms" element={<WebisteTerms/>}></Route>
+      <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>}></Route>
     </Routes>
   );
 }

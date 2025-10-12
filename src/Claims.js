@@ -71,12 +71,20 @@ function Claims() {
           <label>Bank Account Number</label>
           <input type="text" placeholder="Enter account number" />
 
+
+          <label>Renter Bank Account Number</label>
+          <input type="text" placeholder="Renter bank  account number" />
+
+
+
           <label>IFSC Code</label>
           <input type="text" placeholder="Enter IFSC code" />
 
           <label>Bank Name</label>
           <input type="text" placeholder="Enter bank name" />
 
+          <label>Branch Name</label>
+          <input type="text" placeholder="Enter branch name" />
           <div className="btn-group">
             <button className="back-btn" onClick={prevStep}>Back</button>
             <button className="submit-btn">Submit Claim</button>
