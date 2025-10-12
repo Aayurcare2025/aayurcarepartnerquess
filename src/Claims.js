@@ -68,13 +68,17 @@ function Claims() {
       {/* Step 3 */}
       {step === 3 && (
         <div className="form-container">
-          <label>Bank Account Number</label>
+
+
+          <label>Account Holder Name</label>
+          <input type="text" placeholder="Enter Account Holder Name"></input>
+
+          <label>Bank Account  Number</label>
           <input type="text" placeholder="Enter account number" />
 
 
-          <label>Renter Bank Account Number</label>
-          <input type="text" placeholder="Renter bank  account number" />
-
+          <label>Re-enter  Bank Account Number</label>
+          <input type="text" placeholder="Re-enter  bank  account number" />
 
 
           <label>IFSC Code</label>
@@ -85,6 +89,12 @@ function Claims() {
 
           <label>Branch Name</label>
           <input type="text" placeholder="Enter branch name" />
+
+
+          <label>Branch Address</label>
+          <input type="text" placeholder="Enter branch address"/>
+
+
           <div className="btn-group">
             <button className="back-btn" onClick={prevStep}>Back</button>
             <button className="submit-btn">Submit Claim</button>
