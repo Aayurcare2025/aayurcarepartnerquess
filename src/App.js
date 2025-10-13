@@ -11,7 +11,11 @@ import PrivacyPolicy from "./Footer/Privacypolicy";
 import SignUp from "./Dashboard/Signup";
 import Navbar from "./Dashboard/Navbar";
 import SignIn from "./Dashboard/SignIn";
+import ForgotPassword from "./Dashboard/ForgotPassword";
+import ResetPassword from "./Dashboard/ResetPassword";
+import CallbackForm from "./Dashboard/callback";
 import "./App.css"
+
 function App() {
   return (
    <>
@@ -28,6 +32,9 @@ function App() {
       <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
       <Route path="/signin" element={<SignIn/>}></Route>
+      <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
+       <Route path="/reset-password" element={<ResetPassword />} />
+       <Route path="/callback" element={<CallbackForm/>}/>
     </Routes>
     </>
   );

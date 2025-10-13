@@ -70,7 +70,7 @@ function SignIn({setIsLoggedIn }) {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://api.aayurcare.com/user/login", {
+      const response = await fetch("http://localhost:5000/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -124,6 +124,17 @@ function SignIn({setIsLoggedIn }) {
         />
         <button type="submit">Sign In</button>
       </form>
+
+
+       <p>
+        <button
+          type="button"
+          onClick={() => navigate("/forgot-password")}
+          style={{ color: "blue", background: "none", border: "none", cursor: "pointer", marginTop: "10px" }}
+        >
+          Forgot Password?
+        </button>
+      </p>
     </section>
   );
 }

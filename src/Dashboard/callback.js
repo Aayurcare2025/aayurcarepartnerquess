@@ -1,29 +1,50 @@
-// CallbackForm.js
 import React, { useState } from "react";
-import "./CallbackForm.css";
+import "../App.css"
 
 function CallbackForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    problemdescription: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
-    // You can integrate an API call here (like sending data via email or backend)
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    try {
+      const response = await fetch("http://localhost:5000/user/callback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form after submission
-    setFormData({ name: "", email: "", phone: "" });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send callback request");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", problemdescription: "" });
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,7 +53,7 @@ function CallbackForm() {
 
       {submitted ? (
         <p className="success-message">
-          ✅ Thank you! Our team will contact you soon.
+          Thank you! Our team will contact you soon.
         </p>
       ) : (
         <form onSubmit={handleSubmit}>
@@ -66,9 +87,21 @@ function CallbackForm() {
             required
           />
 
-          <button type="submit" className="submit-btn">
-            Submit
+          <label>Problem Description</label>
+          <input
+            type="text"
+            name="problemdescription"
+            placeholder="Enter your problem"
+            value={formData.problemdescription}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Sending..." : "Submit"}
           </button>
+
+          {error && <p className="error-message">{error}</p>}
         </form>
       )}
     </div>
