@@ -1,35 +1,37 @@
-import "./App.css";
+import "../App.css";
 
-function Basicplan() {
+function PremiumPlan() {
   return (
-    //basic plan data
     <div className="basicplan">
       <h1>Plan Benefits Overview</h1>
-    
+
       <div className="basicplan-grid">
-        
+        {/* Doctor Consultation & Medical Services */}
         <div className="basicplan-box">
           <h2>Doctor Consultation & Medical Services</h2>
           <p>Free monthly teleconsultation with a General Physician</p>
           <p>Free consultation with Nutritionists and Physiotherapists</p>
-          <p>consultations with Mental Health Experts</p>
+          <p>5 consultations with Mental Health Experts</p>
           <p>Second opinion for any planned hospitalization</p>
-          <p>Yoga Consultation and Therapy discounts up to 15-30%</p>
+          <p>Yoga Consultation and Therapy discounts upto 15-30%</p>
         </div>
 
+        {/* Mental wellness workshops */}
         <div className="basicplan-box">
-          <h2>Mental Wellness Workshops</h2>
+          <h2>Mental wellness workshops</h2>
           <p>Access to self-help diagnosis and tools</p>
           <p>24/7 emergency helpline</p>
           <p>Disease risk predictions and mitigation tools</p>
         </div>
 
+        {/* Medicines & Pharmacy */}
         <div className="basicplan-box">
           <h2>Medicines & Pharmacy</h2>
           <p>10% discount on medicines</p>
           <p>Discounts on Ayurveda consultations & medicines</p>
         </div>
 
+        {/* Diagnostics & Lab Services */}
         <div className="basicplan-box">
           <h2>Diagnostics & Lab Services</h2>
           <p>Radiology & Pathology services included</p>
@@ -38,19 +40,22 @@ function Basicplan() {
           <p>Gut health test discounts</p>
         </div>
 
+        {/* Dental & Eye Care */}
         <div className="basicplan-box">
           <h2>Dental & Eye Care</h2>
-          <p>Complimentary basic dental check-up</p>
+          <p>Complimentary basic dental check up</p>
           <p>10–40% discount on dental procedures at partner clinics (Clove Dental)</p>
-          <p>Complimentary eye check-up</p>
+          <p>Complimentary eye check up</p>
         </div>
 
+        {/* Fitness & Wellness */}
         <div className="basicplan-box">
           <h2>Fitness & Wellness</h2>
           <p>Mental wellness workshops & webinars</p>
-          <p>Discounts up to 15% on Yoga consultation</p>
+          <p>Discounts upto 15% on Yoga consultation</p>
         </div>
 
+        {/* Education Loan Benefits */}
         <div className="basicplan-box">
           <h2>Education Loan Benefits</h2>
           <p>Loan amount: ₹50,000 – ₹20 Lakhs</p>
@@ -63,6 +68,7 @@ function Basicplan() {
           <p>Online education from recognized institutions</p>
         </div>
 
+        {/* Other Key Benefits */}
         <div className="basicplan-box">
           <h2>Other Key Benefits</h2>
           <p>Ambulance services Pan India – 10% discount</p>
@@ -72,21 +78,24 @@ function Basicplan() {
           <p>Fertility support – free consults + discounts</p>
         </div>
 
+        {/* Reimbursement Note */}
         <div className="basicplan-box">
           <h2>Reimbursement Note</h2>
           <p>Services including doctor consultations, Radiology, Pathology and Medicines are available via reimbursement model.</p>
         </div>
 
+        {/* Travel Benefits */}
         <div className="basicplan-box">
           <h2>Travel Benefits</h2>
           <p>Up to 25% discount on train tickets</p>
-          <p> Up to 15% discount on bus tickets</p>
+          <p>Up to 15% discount on bus tickets</p>
         </div>
-      </div>
 
-     <button className="buynow">Buy Now</button>
+
+      </div>
+              <button className="buynow">Buy Now</button>
     </div>
   );
 }
 
-export default Basicplan;
+export default PremiumPlan;

@@ -1,24 +1,31 @@
-import "./App.css";
-import Aayurcareicon from "./Images/aayuricon.jpg";
+import "../App.css";
+// import Aayurcareicon from "../Images/aayuricon.jpg";
 import { useNavigate } from "react-router-dom";
-import Quess from "./Images/q1.png"
+import Quess from "../Images/q1.png"
 
 function Home() {
   const navigate = useNavigate();
 
   return (
     <div className="App">
-      <nav className="navbar">
+      {/* <nav className="navbar">
         <div className="logo">
           <img src={Aayurcareicon} alt="" />
           <span className="brand-name">AayurCare</span>
-          </div> 
-
-
-            <ul className="nav-links">
+          </div>  */}
+            {/* <ul className="nav-links">
+            
           <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
-      </ul>
-      </nav>
+      </ul> */}
+
+ {/* <div className="auth-links">
+ <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
+    <li onClick={() => navigate("/signin")}>Sign In</li>
+    <li onClick={() => navigate("/signup")}>Sign Up</li>
+  </div> */}
+
+
+      {/* </nav> */}
 
       <div className="main-content">
         <div className="left-section">

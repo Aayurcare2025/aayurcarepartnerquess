@@ -19,7 +19,7 @@ body {
 
 
 .navbar li {
-  padding:10px 300px;
+  padding:10px 0px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: relative;
@@ -49,7 +49,7 @@ body {
 .nav-links li {
   cursor: pointer;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 6px;
   transition: background-color 0.3s ease;
   white-space: nowrap; /* keep text on one line */
@@ -58,6 +58,38 @@ body {
 /* .nav-links li:hover {
   background-color: #001a66;
 } */
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.auth-links li {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-links li:hover {
+  background-color: #001a66;
+}
+
+/* Adjust for mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .auth-links {
+    justify-content: center;
+  }
+}
+
 
 .brand-name {
   font-size: 1.6rem;
@@ -818,3 +850,127 @@ body {
     padding-right:10px;
     right:100px;
 }
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #74ebd5, #acb6e5); */
+    /* background-image:url("Images/1.png"); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0px 10px 20px; 
+  }
+
+  .signup h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #181e52;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .signup form {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+  }
+
+  .signup input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .signup input:focus {
+    border-color: #181e52;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.4);
+  }
+
+  .signup button {
+    padding: 12px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .signup button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 15px rgba(79, 172, 254, 0.4);
+  }
+
+  /* Signin Page Styling */
+  .signin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex;
+    min-height: 100vh;
+    /* background-image:url("Images/1.png"); */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     padding: 60px 10px 20px; 
+  }
+
+
+  .signin form {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 350px;
+  }
+
+  .signin h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #181e52;
+    font-weight: 600;
+  }
+
+  .signin input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .signin input:focus {
+    border-color: #ff9966;
+    box-shadow: 0 0 8px rgba(255, 153, 102, 0.4);
+  }
+
+  .signin button {
+    padding: 12px;
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .signin button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 15px rgba(255, 94, 98, 0.4);
+  }
