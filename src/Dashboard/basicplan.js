@@ -12,7 +12,10 @@ function Basicplan() {
 
           <div className="basicplan-box">
           <h2>Reimbursement</h2>
-          <p>1.Services including doctor consultations, Radiology, Pathology and Medicines are available via reimbursement model.</p>
+          <p>1.Doctor consultations</p>
+          <p>2.Radiology</p>
+          <p>3.Pathology</p>
+          <p>4.Ambulance Service</p>
         </div>
         <div className="basicplan-box">
           <h2>Doctor Consultation & Medical Services</h2>

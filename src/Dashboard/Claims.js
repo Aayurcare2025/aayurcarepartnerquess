@@ -65,6 +65,9 @@ function Claims() {
             <button className="submit-btn" onClick={nextStep}>Next</button>
           </div>
         </div>
+
+
+
       )}
 
       {/* Step 3 */}
