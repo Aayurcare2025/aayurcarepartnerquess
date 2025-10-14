@@ -53,7 +53,8 @@ function Claims() {
             <label><input type="checkbox" /> Medicine Prescription</label>
             <label><input type="checkbox" /> Radiology</label>
             <label><input type="checkbox" /> Pathology</label>
-            <label><input type="checkbox"/>Ambulance Services</label>
+            <label><input type="checkbox" /> Ambulance Service</label>
+           
           </div>
 
           <label>Upload Documents</label>
