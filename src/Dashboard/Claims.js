@@ -37,7 +37,7 @@ function Claims() {
             <option value="">Select document</option>
             <option value="aadhar">Aadhar</option>
             <option value="pan">PAN Card</option>
-            <option value="passport">Passport</option>
+            {/* <option value="passport">Passport</option> */}
           </select>
 
           <button className="submit-btn" onClick={nextStep}>Next</button>
@@ -50,7 +50,7 @@ function Claims() {
           <label>Consultation Type</label>
           <div className="checkbox-group">
             <label><input type="checkbox" /> Consultation</label>
-            <label><input type="checkbox" /> Prescription</label>
+            <label><input type="checkbox" /> Medicine Prescription</label>
             <label><input type="checkbox" /> Radiology</label>
             <label><input type="checkbox" /> Pathology</label>
           </div>

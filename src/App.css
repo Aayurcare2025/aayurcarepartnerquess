@@ -1060,3 +1060,20 @@ body {
 .reset-container button:disabled {
   background-color: #999;
 }
+.basicplan-box ul {
+  list-style-type: disc; /* bullet style */
+  padding-left: 20px; /* space before bullets */
+  margin: 10px 0;
+  color: #0a2a66;
+}
+
+.basicplan-box li {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Optional: blue bullet color */
+.basicplan-box ul li::marker {
+  color: #0033cc;
+}
