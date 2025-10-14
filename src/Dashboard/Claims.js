@@ -37,6 +37,7 @@ function Claims() {
             <option value="">Select document</option>
             <option value="aadhar">Aadhar</option>
             <option value="pan">PAN Card</option>
+            <option value="bank passbook">Bank Passbook</option>
             {/* <option value="passport">Passport</option> */}
           </select>
 
