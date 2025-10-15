@@ -23,7 +23,7 @@ function SignUp() {
        
         
         try {
-            const response = await fetch("https://api.aayurcare.com/user/register", {
+            const response = await fetch("https://api.partner-quess.aayurcare.com/user/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
