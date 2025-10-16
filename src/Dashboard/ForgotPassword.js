@@ -10,12 +10,12 @@ function ForgotPassword() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/user/forgot", {
+      const response = await fetch("https://api.partner-quess.aayurcare.com/user/forgot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           emailOrUsername: email,
-          frontendResetUrl: "http://localhost:3000/reset-password"
+          frontendResetUrl: "https://api.partner-quess.aayurcare.com/reset-password"
         }),
       });
 
