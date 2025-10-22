@@ -4,15 +4,17 @@ function Login() {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [step, setStep] = useState(1);
-
+ const [loading, setLoading] = useState(false);
   const handleSendOtp = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:8000/user/send-otp', {
+      setLoading(true);
+    const res = await fetch('https://api.partner-quess.aayurcare.com/user/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
     });
     const data = await res.json();
+    setLoading(false);
     if (res.ok) {
       alert('OTP sent to your email!');
       setStep(2);
@@ -24,7 +26,7 @@ function Login() {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     //https://api.partner-quess.aayurcare.com
-    const res = await fetch('http://localhost:8000/user/verify-otp', {
+    const res = await fetch('https://api.partner-quess.aayurcare.com/user/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp }),
@@ -53,7 +55,10 @@ function Login() {
             required
           />
           <br />
-          <button type="submit">Send OTP</button>
+          {/* <button type="submit">Send OTP</button> */}
+          <button type="submit" disabled={loading}>
+  {loading ? "Sending OTP..." : "Send OTP"}
+</button>
         </form>
       ) : (
         <form onSubmit={handleVerifyOtp}>
