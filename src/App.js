@@ -15,6 +15,7 @@ import ForgotPassword from "./Dashboard/ForgotPassword";
 import ResetPassword from "./Dashboard/ResetPassword";
 import CallbackForm from "./Dashboard/callback";
 import "./App.css"
+import Login from "./Dashboard/Login";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
        <Route path="/reset-password" element={<ResetPassword />} />
        <Route path="/callback" element={<CallbackForm/>}/>
+       <Route path="/Login" element={<Login/>}></Route>
     </Routes>
     </>
   );

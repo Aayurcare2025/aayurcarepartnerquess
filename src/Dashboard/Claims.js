@@ -117,7 +117,7 @@
 
 
 import React, { useState } from "react";
-
+import '../App.css'
 
 function Claims() {
   const [step, setStep] = useState(1);
