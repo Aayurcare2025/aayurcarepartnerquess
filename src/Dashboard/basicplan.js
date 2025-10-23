@@ -89,8 +89,8 @@ function Basicplan() {
           <p>2.Up to 15% discount on bus tickets</p>
         </div>
       </div>
-
-     <button className="buynow">Buy Now</button>
+//DetailsOfBasicPlan
+     <button  className="buynow">Buy Now</button>
     </div>
   );
 }
