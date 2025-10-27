@@ -113,20 +113,7 @@ body {
 }
 
 /* 
-.header-section
-{
-  padding:120px;
-} */
-.header-section h1 {
-  color: #0033cc;
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #0a2a66;
-}
 
 /* Benefits */
 .benefits {
@@ -363,6 +350,12 @@ body {
   .brand-name {
     font-size: 1.2rem;
   }
+}
+.header-section img.quess {
+  width: 100%;
+  max-width: 500px; 
+  height: auto;     
+  
 }
 @media (max-width: 768px) {
   .header-section h1 {

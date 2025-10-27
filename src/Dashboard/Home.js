@@ -8,24 +8,6 @@ function Home() {
 
   return (
     <div className="App">
-      {/* <nav className="navbar">
-        <div className="logo">
-          <img src={Aayurcareicon} alt="" />
-          <span className="brand-name">AayurCare</span>
-          </div>  */}
-            {/* <ul className="nav-links">
-            
-          <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
-      </ul> */}
-
- {/* <div className="auth-links">
- <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
-    <li onClick={() => navigate("/signin")}>Sign In</li>
-    <li onClick={() => navigate("/signup")}>Sign Up</li>
-  </div> */}
-
-
-      {/* </nav> */}
 
       <div className="main-content">
         <div className="left-section">
