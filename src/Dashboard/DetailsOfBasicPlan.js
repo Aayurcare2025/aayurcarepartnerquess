@@ -4,7 +4,7 @@ import '../App.css'
 
 function DetailsOfBasicPlan() {
   const [step, setStep] = useState(1);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [formData, setFormData] = useState({
     name: "",

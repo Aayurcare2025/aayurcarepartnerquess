@@ -17,7 +17,7 @@ import CallbackForm from "./Dashboard/callback";
 import "./App.css"
 import Login from "./Dashboard/Login";
 // import DetailsOfBasicPlan from ".Dashboard/"
-
+import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
 function App() {
   return (
    <>
@@ -38,6 +38,7 @@ function App() {
        <Route path="/reset-password" element={<ResetPassword />} />
        <Route path="/callback" element={<CallbackForm/>}/>
        <Route path="/Login" element={<Login/>}></Route>
+       <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route>
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
     </Routes>
     </>
