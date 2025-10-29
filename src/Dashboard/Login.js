@@ -26,7 +26,7 @@
     const handleVerifyOtp = async (e) => {
       e.preventDefault();
       //https://api.partner-quess.aayurcare.com
-      const res = await fetch('https://api.partner-quess.aayurcare.com/verify-otp', {
+      const res = await fetch('https://api.partner-quess.aayurcare.com/user/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
