@@ -1,22 +1,19 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background-color: white;
-  color: #0a2a66;
+  background-color: #ffffff;
 }
 
 /* Navbar */
 .navbar {
   display: flex;
   align-items: center;
-    justify-content: space-between;
+  justify-content: space-between;
   background-color: #002b80;
   padding: 8px 30px;
   color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 50, 0.3);
 }
-
-
 
 .navbar li {
   padding:10px 0px;
@@ -24,7 +21,6 @@ body {
   transition: background-color 0.3s ease;
   position: relative;
   font-weight:bold;
-
 }
 
 
@@ -79,7 +75,8 @@ body {
 }
 
 /* Adjust for mobile */
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     gap: 10px;
@@ -89,13 +86,11 @@ body {
     justify-content: center;
   }
 }
-
-
 .brand-name {
   font-size: 1.6rem;
   font-weight: 600;
   color: white;
-}
+} */
 
 /* Layout */
 .main-content {
@@ -107,11 +102,24 @@ body {
 
 /* Left Section */
 .left-section {
-  flex: 1;
-  min-width: 320px;
-  margin-right: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+}
+.quess
+{
+  width:550px;
+  height:auto;
 }
 
+.left-section h1 {
+  font-size: 3.5rem;
+  color: #002b80;
+ left:50px;
+ 
+}
 /* 
 
 
@@ -189,8 +197,9 @@ body {
 
 /* Right Section */
 .right-section {
-  flex: 0.8;
-  min-width: 320px;
+ left:30px;
+  flex: 0.2;
+  width: 1400px;
   background-color: #ffffff;
   padding: 5px;
   border-radius: 12px;
@@ -294,6 +303,8 @@ body {
   color: #0033cc;
   font-size: 1.5rem;
   margin-bottom: 12px;
+  
+  
 }
 
 /* Box Paragraphs */
@@ -304,7 +315,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .basicplan {
     padding: 15px;
   }
@@ -321,7 +332,7 @@ body {
     font-size: 1rem;
   }
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
   .main-content {
     flex-direction: column;
     padding: 20px;
@@ -332,12 +343,13 @@ body {
     margin-bottom: 30px;
   }
 
-  .right-section {
-    width: 100%;
+  /* .right-section {
+    left:300px;
+    width: 50%;
     padding: 10px;
-  }
-}
-@media (max-width: 768px) {
+  } */
+/* } */ */
+/* @media (max-width: 768px) {
   .navbar {
     justify-content: center;
     padding: 10px 15px;
@@ -353,11 +365,19 @@ body {
 }
 .header-section img.quess {
   width: 100%;
-  max-width: 500px; 
-  height: auto;     
-  
+  max-width: 600px;
+  height: auto; 
+  align-items:center;   
 }
-@media (max-width: 768px) {
+.header-section h1{
+  font-size:45px;
+  right:100px;
+  align-items:center;
+
+} */
+
+
+/* @media (max-width: 768px) {
   .header-section h1 {
     font-size: 1.6rem;
     text-align: center;
@@ -375,8 +395,8 @@ body {
   .callback-btn {
     width: 80%;
   }
-}
-@media (max-width: 768px) {
+} */
+/* @media (max-width: 768px) {
   .plan-card {
     width: 100%;
     margin: 15px 0;
@@ -385,12 +405,12 @@ body {
   .plan-card button {
     width: 100%;
   }
-}
-@media (max-width: 768px) {
+} */
+/* @media (max-width: 768px) {
   body {
     padding: 0 10px;
   }
-}
+} */
 .callback-form-container {
   background: #f8f9fa;
   padding: 25px;
@@ -452,6 +472,7 @@ body {
   font-weight: 600;
   text-align: center;
 }
+
 .callback-form-container {
   background: #f8f9fa;
   padding: 25px;
@@ -640,6 +661,8 @@ body {
     gap: 20px;
   }
 
+
+
   .phone-input {
     display: flex;
     align-items: center;
@@ -685,6 +708,7 @@ body {
     font-size: 18px;
     margin-bottom: 20px;
     color: #444;
+  
   }
 
   .form-input {
@@ -716,6 +740,7 @@ body {
     background: #ccc;
     color: #000;
   }
+
 
   .back-btn:hover {
     background: #999;
@@ -760,7 +785,7 @@ body {
 }
 
 .footer-logo {
-  font-size: 2rem; /* Bigger AayurCare */
+  font-size: 2rem;
   color: #fff;
   margin-bottom: 0.5rem;
 }
@@ -793,7 +818,7 @@ body {
 .footer-section h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: #fff; /* White headings */
+  color: #fff; 
 }
 
 .footer-section ul {
@@ -812,7 +837,7 @@ body {
 }
 
 .footer-section ul li a:hover {
-  color: #4CAF50; /* Green hover */
+  color: #4CAF50; 
 }
 
 /* Responsive */

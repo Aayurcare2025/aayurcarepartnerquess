@@ -18,6 +18,7 @@ import "./App.css"
 import Login from "./Dashboard/Login";
 // import DetailsOfBasicPlan from ".Dashboard/"
 import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
+import OpdRebursement from "./Dashboard/OpdRebursement";  
 function App() {
   return (
    <>
@@ -39,6 +40,7 @@ function App() {
        <Route path="/callback" element={<CallbackForm/>}/>
        <Route path="/Login" element={<Login/>}></Route>
        <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route>
+      <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route>
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
     </Routes>
     </>

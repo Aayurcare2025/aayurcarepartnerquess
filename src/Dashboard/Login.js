@@ -10,6 +10,7 @@
         setLoading(true);
       const res = await fetch('https://api.partner-quess.aayurcare.com/user/send-otp', {
         method: 'POST',
+        
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
@@ -36,7 +37,7 @@
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('userEmail', data.user.email);
         alert('Login successful!');
-        window.location.href = '/dashboard';
+        window.location.href = '/OpdRebursement';
       } else {
         alert(data.message || 'Invalid OTP');
       }

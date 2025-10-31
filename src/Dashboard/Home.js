@@ -9,38 +9,27 @@ function Home() {
   return (
     <div className="App">
 
+   
       <div className="main-content">
         <div className="left-section">
+          
           <header className="header-section">
              {/* <img src={Aayurcareicon} alt="" /> */}
              <img  className="quess"src={Quess} alt=""></img>
-             
+            
             <h1>Welcome to Your Health Hub</h1>
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
           </header>
+
           <section className="support">
             <p>Need help? Reach out to our customer support team.</p>
             <button onClick={() => navigate("/callback")} className="callback-btn">Request a Callback</button>
           </section>
+
         </div>
 
-        <div className="right-section">
-          <h2>OPD Reimbursement Plans</h2>
 
-          <div className="plan-card basic">
-            <h3>Basic Plan</h3>
-            <p>₹200 /- month</p>
-            <p>Total coverage upto ₹2000 /-</p>
-            <button className="b1"onClick={() => navigate("/Basicplan")}>Select Plan</button>
-          </div>
-
-          <div className="plan-card premium">
-            <h3>Premium Plan</h3>
-            <p>₹400 /- month</p>
-            <p>Total coverage upto ₹4100 /-</p>
-            <button className="b1" onClick={()=>navigate("/PremiumPlan")}>Select Plan</button>
-          </div>
-        </div>
+       
       </div>
 
 
