@@ -8,8 +8,6 @@ function Home() {
 
   return (
     <div className="App">
-
-   
       <div className="main-content">
         <div className="left-section">
           
@@ -21,6 +19,7 @@ function Home() {
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
           </header>
 
+        
           <section className="support">
             <p>Need help? Reach out to our customer support team.</p>
             <button onClick={() => navigate("/callback")} className="callback-btn">Request a Callback</button>

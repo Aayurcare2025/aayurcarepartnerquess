@@ -7,9 +7,8 @@ function OpdRebursement()
      const navigate = useNavigate();
     return (
    <div className="right-section">
- 
-          <h2>OPD Reimbursement Plans</h2>
 
+          <h2>OPD Reimbursement Plans</h2>
           <div className="plan-card basic">
             <h3>Basic Plan</h3>
             <p>₹200 /- month</p>
