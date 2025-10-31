@@ -4,7 +4,7 @@ body {
   background-color: #ffffff;
 }
 
-/* Navbar */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -51,9 +51,6 @@ body {
   white-space: nowrap; /* keep text on one line */
 }
 
-/* .nav-links li:hover {
-  background-color: #001a66;
-} */
 
 .auth-links {
   display: flex;
@@ -74,25 +71,7 @@ body {
   background-color: #001a66;
 }
 
-/* Adjust for mobile */
 
-/* @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .auth-links {
-    justify-content: center;
-  }
-}
-.brand-name {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: white;
-} */
-
-/* Layout */
 .main-content {
   display: flex;
   justify-content: space-between;
@@ -100,13 +79,12 @@ body {
   flex-wrap: wrap;
 }
 
-/* Left Section */
+
 .left-section {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
+ 
 }
 .quess
 {
@@ -143,7 +121,7 @@ body {
   border-bottom: 1px solid #cbd6f7;
 }
 
-/* Support */
+
 .support {
   margin-top: 0px;
 }
@@ -195,7 +173,7 @@ body {
   background-color: #001f66;
 }
 
-/* Right Section */
+
 .right-section {
  left:30px;
   flex: 0.2;
@@ -264,7 +242,7 @@ body {
   color: #0a2a66;
 
 }
-/* Main Title */
+
 .basicplan h1 {
   text-align: center;
 
@@ -276,7 +254,7 @@ body {
   padding-bottom: 8px;
 }
 
-/* Grid Layout */
+
 .basicplan-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
