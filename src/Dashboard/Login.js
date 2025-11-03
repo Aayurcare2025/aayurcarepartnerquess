@@ -10,11 +10,11 @@
         setLoading(true);
       const res = await fetch('https://api.partner-quess.aayurcare.com/user/send-otp', {
         method: 'POST',
-        
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
       const data = await res.json();
+      console.log("data",data);
       setLoading(false);
       if (res.ok) {
         alert('OTP sent to your email!');
