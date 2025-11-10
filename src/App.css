@@ -760,8 +760,7 @@ body {
     padding: 8px 12px;
     cursor: pointer;
     border-radius: 5px;
-    padding-right:10px;
-    right:100px;
+  
 }
 .signup {
     display: flex;
@@ -997,3 +996,62 @@ button:focus {
   outline: none;  
   box-shadow: none; 
 } */
+
+
+
+.payment-result {
+  text-align: center;
+  margin-top: 100px;
+  padding: 40px;
+  border-radius: 20px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.payment-result.success {
+  background-color: #e7ffe7;
+  border: 2px solid #00c853;
+}
+
+.payment-result.failure {
+  background-color: #ffeaea;
+  border: 2px solid #ff5252;
+}
+
+.home-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background-color: #0056b3;
+}
+.plan-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px; /* space between boxes */
+  flex-wrap: wrap; /* makes it responsive */
+  margin-top: 50px;
+}
+
+.plan-card {
+  flex: 1 1 300px; /* makes both same width */
+  max-width: 400px;
+height:300px;
+  background-color: #e6ecff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 80, 0.1);
+  transition: transform 0.3s ease;
+}
+
+

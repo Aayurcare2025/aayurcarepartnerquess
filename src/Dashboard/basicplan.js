@@ -1,6 +1,48 @@
 import "../App.css";
 
 function Basicplan() {
+
+  // const user = JSON.parse(localStorage.getItem("user"));
+const handleBuyNow = async () => {
+  try {
+    // const response = await fetch("http://localhost:7000/payment/initiate", {
+    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstname: "Kirthana",             // fixed for testing
+        email: "kirthana@gmail.com",     // fixed for testing
+        amount: "1",                    // your Basic plan price
+        productinfo: "Basic Health Plan",  // plan name
+      }),
+    });
+console.log("responses to display:", response);
+    const data = await response.json();
+    console.log("PayU Response:", data);
+
+    // Auto-submit form to PayU
+    const form = document.createElement("form");
+    form.method = "POST";
+    // form.action = data.payment_url; // returned from backend
+ form.action = data.payuUrl;
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+      }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+  } catch (error) {
+    console.error("Payment error:", error);
+  }
+};
+
   return (
     //basic plan data
     <div className="basicplan">
@@ -8,8 +50,6 @@ function Basicplan() {
     
       <div className="basicplan-grid">
         
-
-
           <div className="basicplan-box">
           <h2>Reimbursement</h2>
           <p>1.Doctor consultations</p>
@@ -90,7 +130,7 @@ function Basicplan() {
         </div>
       </div>
 
-     <button  className="buynow">Buy Now</button>
+     <button  className="buynow"  onClick={handleBuyNow}>Buy Now</button>
     </div>
   );
 }

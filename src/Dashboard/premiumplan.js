@@ -8,8 +8,6 @@ function PremiumPlan() {
       <div className="basicplan-grid">
         {/* Doctor Consultation & Medical Services */}
 
-
-
           <div className="basicplan-box">
           <h2>Reimbursement</h2>
           <p>1.Doctor consultations</p>

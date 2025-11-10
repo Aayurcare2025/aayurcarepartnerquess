@@ -9,6 +9,7 @@
       e.preventDefault();
         setLoading(true);
       const res = await fetch('https://api.partner-quess.aayurcare.com/user/send-otp', {
+        //  const res = await fetch('http://localhost:7000/user/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),

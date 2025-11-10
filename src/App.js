@@ -19,6 +19,8 @@ import Login from "./Dashboard/Login";
 // import DetailsOfBasicPlan from ".Dashboard/"
 import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
 import OpdRebursement from "./Dashboard/OpdRebursement";  
+import PaymentFailure from "./Dashboard/PaymentFailure";
+import PaymentSuccess from "./Dashboard/PaymentSuccess";
 function App() {
   return (
    <>
@@ -42,6 +44,8 @@ function App() {
        <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route>
       <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route>
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/payment-failure" element={<PaymentFailure />} />
     </Routes>
     </>
   );
