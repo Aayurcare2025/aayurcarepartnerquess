@@ -17,7 +17,7 @@ import CallbackForm from "./Dashboard/callback";
 import "./App.css"
 import Login from "./Dashboard/Login";
 // import DetailsOfBasicPlan from ".Dashboard/"
-import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
+// import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
 import OpdRebursement from "./Dashboard/OpdRebursement";  
 import PaymentFailure from "./Dashboard/PaymentFailure";
 import PaymentSuccess from "./Dashboard/PaymentSuccess";
@@ -41,7 +41,7 @@ function App() {
        <Route path="/reset-password" element={<ResetPassword />} />
        <Route path="/callback" element={<CallbackForm/>}/>
        <Route path="/Login" element={<Login/>}></Route>
-       <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route>
+       {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
       <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route>
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
         <Route path="/payment-success" element={<PaymentSuccess />} />
