@@ -5,12 +5,14 @@ function Basicplan() {
   // const user = JSON.parse(localStorage.getItem("user"));
 const handleBuyNow = async () => {
   try {
-    // const response = await fetch("http://localhost:7000/payment/initiate", {
-    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    const response = await fetch("http://localhost:7000/payment/initiate", {
+    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+
+        //from api we need to call firstname and gmail 
         firstname: "Kirthana",             // fixed for testing
         email: "kirthana@gmail.com",     // fixed for testing
         amount: "1",                    // your Basic plan price
