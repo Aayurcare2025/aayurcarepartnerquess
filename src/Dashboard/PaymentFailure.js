@@ -3,7 +3,7 @@ import React from "react";
 import "../App.css";
 
 function PaymentFailure() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div className="payment-result failure">
