@@ -15,7 +15,7 @@ const handleBuyNow = async () => {
         //from api we need to call firstname and gmail 
         firstname: "Kirthana",             
         email: "kirthana@gmail.com",  
-        amount: "1",                    
+        amount: "200",                    
         productinfo: "Basic Health Plan", 
       }),
     });
