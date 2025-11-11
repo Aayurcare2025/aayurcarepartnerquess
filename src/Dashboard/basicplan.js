@@ -13,10 +13,10 @@ const handleBuyNow = async () => {
       body: JSON.stringify({
 
         //from api we need to call firstname and gmail 
-        firstname: "Kirthana",             // fixed for testing
-        email: "kirthana@gmail.com",     // fixed for testing
-        amount: "1",                    // your Basic plan price
-        productinfo: "Basic Health Plan",  // plan name
+        firstname: "Kirthana",             
+        email: "kirthana@gmail.com",  
+        amount: "1",                    
+        productinfo: "Basic Health Plan", 
       }),
     });
 console.log("responses to display:", response);

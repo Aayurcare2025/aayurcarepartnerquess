@@ -1,6 +1,49 @@
 import "../App.css";
 
 function PremiumPlan() {
+
+const handleBuyNow = async () => {
+  try {
+    // const response = await fetch("http://localhost:7000/payment/initiate", {
+    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+
+        //from api we need to call firstname and gmail 
+        firstname: "Kirthana",             
+        email: "kirthana@gmail.com",  
+        amount: "1",                    
+        productinfo: "Basic Health Plan", 
+      }),
+    });
+console.log("responses to display:", response);
+    const data = await response.json();
+    console.log("PayU Response:", data);
+
+    // Auto-submit form to PayU
+    const form = document.createElement("form");
+    form.method = "POST";
+    // form.action = data.payment_url; // returned from backend
+ form.action = data.payuUrl;
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+        form.appendChild(input);
+      }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+  } catch (error) {
+    console.error("Payment error:", error);
+  }
+};
+
   return (
     <div className="basicplan">
       <h1>Plan Benefits Overview</h1>
@@ -101,7 +144,7 @@ function PremiumPlan() {
 
 
       </div>
-              <button className="buynow">Buy Now</button>
+              <button className="buynow" onClick={handleBuyNow}>Buy Now</button>
     </div>
   );
 }
