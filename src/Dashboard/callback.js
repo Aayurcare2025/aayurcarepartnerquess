@@ -134,7 +134,8 @@ function CallbackForm() {
     setError("");
 
     try {
-      const response = await fetch("https://api.partner-quess.aayurcare.com/user/callback", {
+      // const response = await fetch("https://api.partner-quess.aayurcare.com/user/callback", {
+        const response = await fetch("http://localhost:7000/otp/callback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -163,7 +164,7 @@ function CallbackForm() {
       <h2>Request a Callback</h2>
     
       <p className="contact-info">
-        For any immediate assistance, call us at <strong>+91 7338146712</strong>
+        For any immediate assistance, call us at <strong>+91 8970890228</strong>
       </p>
 
       {submitted ? (

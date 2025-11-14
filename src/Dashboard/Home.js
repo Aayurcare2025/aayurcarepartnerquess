@@ -2,6 +2,7 @@ import "../App.css";
 // import Aayurcareicon from "../Images/aayuricon.jpg";
 import { useNavigate } from "react-router-dom";
 import Quess from "../Images/q1.png"
+import WhatsApp from "../Images/whatsappcion.png"
 
 function Home() {
   const navigate = useNavigate();
@@ -23,6 +24,19 @@ function Home() {
           <section className="support">
             <p>Need help? Reach out to our customer support team.</p>
             <button onClick={() => navigate("/callback")} className="callback-btn">Request a Callback</button>
+          </section>
+
+          <section className="whatsapp">
+            <img className="whatsapp" src={WhatsApp} alt="WhatsApp" 
+
+
+ onClick={() => {
+    window.open(
+      "https://web.whatsapp.com/send?phone=918970890228&text=Chatbot%20testing",
+      "_blank"
+    );
+  }}
+            ></img>
           </section>
 
         </div>
