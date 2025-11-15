@@ -310,7 +310,7 @@ function Login() {
       return;
     }
     setLoading(true);
-    const res = await fetch("http://localhost:7000/otp/send", {
+    const res = await fetch("https://partner-quess.aayurcare.com/otp/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // body: JSON.stringify({ phone }),
@@ -337,7 +337,7 @@ function Login() {
       return;
     }
     setLoading(true);
-    const res = await fetch("http://localhost:7000/otp/verify", {
+    const res = await fetch("https://partner-quess.aayurcare.com/otp/verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // body: JSON.stringify({ phone, otp }),
@@ -357,7 +357,7 @@ function Login() {
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1>Login via Phone OTP</h1>
+        <h1>Login</h1>
 
         {step === 1 ? (
           <form onSubmit={handleSendOtp}>

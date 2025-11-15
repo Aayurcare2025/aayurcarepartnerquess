@@ -22,7 +22,7 @@ function Home() {
 
         
           <section className="support">
-            <p>Need help? Reach out to our customer support team.</p>
+            <p>Need help? Contact support. Connect with us to access more benefits.</p>
             <button onClick={() => navigate("/callback")} className="callback-btn">Request a Callback</button>
           </section>
 
@@ -32,7 +32,7 @@ function Home() {
 
  onClick={() => {
     window.open(
-      "https://web.whatsapp.com/send?phone=918970890228&text=Chatbot%20testing",
+      "https://wa.me/918970890228?text=Send%20%22Hi%22%20to%20this%20number",
       "_blank"
     );
   }}
