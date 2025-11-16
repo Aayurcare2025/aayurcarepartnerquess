@@ -24,7 +24,7 @@ function Login() {
 
     setLoading(true);
 
-    const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+    const res = await fetch("http://localhost:7000/otp/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reqBody),
@@ -61,7 +61,7 @@ function Login() {
 
     setLoading(true);
 //https://api.partner-quess.aayurcare.com
-    const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
+    const res = await fetch("http://localhost:7000/otp/verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reqBody),
