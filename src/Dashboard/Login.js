@@ -60,7 +60,7 @@ function Login() {
     console.log("📤 Sending Verify Body:", reqBody);
 
     setLoading(true);
-
+//https://api.partner-quess.aayurcare.com
     const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
