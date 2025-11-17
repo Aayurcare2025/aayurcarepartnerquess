@@ -6,7 +6,7 @@ import WhatsApp from "../Images/whatsappcion.png"
 
 function Home() {
   const navigate = useNavigate();
-
+//this is home page of quess employees
   return (
     <div className="App">
       <div className="main-content">
