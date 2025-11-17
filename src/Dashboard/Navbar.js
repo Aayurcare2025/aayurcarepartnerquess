@@ -16,7 +16,7 @@ function Navbar() {
       </div> 
       <div className="auth-links">
         <li onClick={()=>navigate("/")}>Home</li>
-         <li onClick={() => navigate("/claims")}>Submit Your Claims</li>
+         <li onClick={() => navigate("/claims")}>Claims</li>
          <li onClick={() => navigate("/Login")}>Login</li>
       </div>
     </nav>
