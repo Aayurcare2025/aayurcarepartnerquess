@@ -17,6 +17,12 @@ function Navbar() {
       <div className="auth-links">
         <li onClick={()=>navigate("/")}>Home</li>
          <li onClick={() => navigate("/claims")}>Claims</li>
+         <li 
+  onClick={() => window.location.href = "https://link.mypillo.in/kckszz"} 
+  style={{ cursor: "pointer" }}
+>
+  Medicine Delivery
+</li>
          <li onClick={() => navigate("/Login")}>Login</li>
       </div>
     </nav>
