@@ -13,7 +13,9 @@ function Navbar() {
       <div className="logo" onClick={() => navigate("/")}>
         {/* <img src={Aayurcareicon} alt="logo" /> */}
         {/* <span className="brand-name">AayurCare</span> */}
-      </div> 
+      </div>
+
+      
       <div className="auth-links">
         <li onClick={()=>navigate("/")}>Home</li>
          <li onClick={() => navigate("/claims")}>Claims</li>

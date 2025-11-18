@@ -15,9 +15,11 @@ function Home() {
           <header className="header-section">
              {/* <img src={Aayurcareicon} alt="" /> */}
              <img  className="quess"src={Quess} alt=""></img>
-            
+          
             <h1>Welcome to Your Health Hub</h1>
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
+
+
           </header>
 
         

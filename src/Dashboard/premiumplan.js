@@ -4,16 +4,16 @@ function PremiumPlan() {
 
 const handleBuyNow = async () => {
   try {
-    // const response = await fetch("http://localhost:7000/payment/initiate", {
-    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    const response = await fetch("http://localhost:7000/payment/initiate", {
+    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
 
         //from api we need to call firstname and gmail 
-        firstname: "Kirthana",             
-        email: "kirthana@gmail.com",  
+        // firstname: "Kirthana",             
+        // email: "kirthana@gmail.com",  
         amount: "400",                    
         productinfo: "Basic Health Plan", 
       }),
