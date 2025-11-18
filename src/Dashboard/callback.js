@@ -109,6 +109,12 @@
 // }
 
 // export default CallbackForm;
+
+
+
+
+
+
 import React, { useState } from "react";
 import "../App.css";
 
@@ -135,7 +141,7 @@ function CallbackForm() {
 
     try {
       // const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
-        const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
+        const response = await fetch("http://localhost:7000/otp/callback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
