@@ -5,7 +5,7 @@ function Basicplan() {
   // const user = JSON.parse(localStorage.getItem("user"));
 const handleBuyNow = async () => {
   try {
-    const response = await fetch("http://localhost:7000/payment/initiate", {
+    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
     // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
       method: "POST",
