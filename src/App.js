@@ -15,7 +15,7 @@ import ForgotPassword from "./Dashboard/ForgotPassword";
 import ResetPassword from "./Dashboard/ResetPassword";
 import CallbackForm from "./Dashboard/callback";
 import "./App.css"
-import Login from "./Dashboard/Login";
+// import Login from "./Dashboard/Login";
 // import DetailsOfBasicPlan from ".Dashboard/"
 // import DetailsOfBasicPlan from "./Dashboard/DetailsOfBasicPlan"
 import OpdRebursement from "./Dashboard/OpdRebursement";  
