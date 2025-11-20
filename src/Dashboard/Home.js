@@ -18,10 +18,12 @@ function Home() {
       const applicantId = params.get("applicant_id");
   const contact = params.get("contact_number");
 
+
+
 console.log("aplicantId:", applicantId);
 console.log("contact_number:", contact);
 
-    if (contact_no) {
+    if (contact) {
       setPhone(contact); // Autofill the number
     }
   }, []);
