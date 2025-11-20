@@ -12,6 +12,8 @@ function Login() {
   React.useEffect(() => {
   const params = new URLSearchParams(window.location.search);
 
+console.log("URL:", window.location.href);
+console.log("SEARCH:", window.location.search);
 
   console.log("params:", params.toString());
   const applicantId = params.get("applicant_id");
