@@ -50,6 +50,7 @@ function OpdRebursement() {
     <div className="right-section">
       <h2>OPD Reimbursement Plans</h2>
 
+
       {/* Flex container for side-by-side cards */}
       <div className="plan-container">
         <div className="plan-card basic">

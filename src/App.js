@@ -24,6 +24,8 @@ import PaymentSuccess from "./Dashboard/PaymentSuccess";
 function App() {
   return (
    <>
+
+   
       <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -40,7 +42,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
        <Route path="/reset-password" element={<ResetPassword />} />
        <Route path="/callback" element={<CallbackForm/>}/>
-       <Route path="/Login" element={<Login/>}></Route>
+       {/* <Route path="/Login" element={<Login/>}></Route> */}
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
       <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route>
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}

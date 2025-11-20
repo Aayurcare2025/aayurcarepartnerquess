@@ -25,7 +25,8 @@ function Navbar() {
 >
   Medicine Delivery
 </li>
-         <li onClick={() => navigate("/Login")}>Login</li>
+<li>Callback</li>
+         {/* <li onClick={() => navigate("/Login")}>Login</li> */}
       </div>
     </nav>
   );

@@ -208,7 +208,7 @@ function Home() {
       console.log("OTP Verified:", res.data);
       alert("Login Successful");
 
-      navigate("/dashboard");
+      navigate("/OpdRebursement");
     } catch (error) {
       alert("Invalid OTP");
     }
