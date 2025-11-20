@@ -12,8 +12,11 @@ function Login() {
   React.useEffect(() => {
   const params = new URLSearchParams(window.location.search);
 
+
+  console.log("params:", params.toString());
   const applicantId = params.get("applicant_id");
   const contact = params.get("contact_number");
+
 
 
   console.log("Applicant ID from URL:", applicantId);
