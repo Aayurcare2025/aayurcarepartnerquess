@@ -3,10 +3,34 @@ import "../App.css";
 import { useNavigate } from "react-router-dom";
 import Quess from "../Images/q1.png"
 import WhatsApp from "../Images/whatsappcion.png"
-
+import React,{ useState, } from "react";
 function Home() {
+
+
   const navigate = useNavigate();
+  
+
+   const [phone, setPhone] = useState("");
+  
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const contact_no = params.get("contact_no");
+
+      const applicantId = params.get("applicant_id");
+  const contact = params.get("contact_number");
+
+console.log("aplicantId:", applicantId);
+console.log("contact_number:", contact);
+
+    if (contact_no) {
+      setPhone(contact_no); // Autofill the number
+    }
+  }, []);
 //this is home page of quess employees
+
+
+
+
   return (
     <div className="App">
       <div className="main-content">
@@ -20,13 +44,31 @@ function Home() {
             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
 
 
+
+<div className="login-box">
+  <input
+    type="text"
+    value={phone}
+    onChange={(e) => setPhone(e.target.value)}
+    placeholder="Mobile Number"
+    className="mobile-input"
+  />
+
+  <button
+    className="login-btn"
+    onClick={() => navigate("/login?contact_no=" + phone)}
+  >
+    Login
+  </button>
+</div>
+
           </header>
 
         
-          <section className="support">
+          {/* <section className="support">
             <p>Need help? Contact support. Connect with us to access more benefits.</p>
             <button onClick={() => navigate("/callback")} className="callback-btn">Request a Callback</button>
-          </section>
+          </section> */}
 
           <section className="whatsapp">
             <img className="whatsapp" src={WhatsApp} alt="WhatsApp" 
