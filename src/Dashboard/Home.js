@@ -14,8 +14,7 @@ function Home() {
   
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const contact_no = params.get("contact_no");
-
+    console.log("params",params);
       const applicantId = params.get("applicant_id");
   const contact = params.get("contact_number");
 
