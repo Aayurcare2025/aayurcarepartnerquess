@@ -7,6 +7,26 @@ function Login() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
 
+
+
+  React.useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+
+  const applicantId = params.get("applicant_id");
+  const contact = params.get("contact_number");
+
+
+  console.log("Applicant ID from URL:", applicantId);
+  console.log("contact number from URL:", contact);
+  if (contact) {
+    setPhone(contact.slice(-10));
+  }
+
+  if (applicantId) {
+    localStorage.setItem("applicant_id", applicantId);
+  }
+}, []);
+
   // ---------------- SEND OTP ----------------
   const handleSendOtp = async (e) => {
     e.preventDefault();
