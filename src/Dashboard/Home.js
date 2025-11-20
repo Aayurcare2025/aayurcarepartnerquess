@@ -23,7 +23,7 @@ console.log("aplicantId:", applicantId);
 console.log("contact_number:", contact);
 
     if (contact_no) {
-      setPhone(contact_no); // Autofill the number
+      setPhone(contact); // Autofill the number
     }
   }, []);
 //this is home page of quess employees
