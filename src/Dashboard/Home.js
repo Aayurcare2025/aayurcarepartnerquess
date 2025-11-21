@@ -152,12 +152,164 @@
 // export default Home;
 
 
+// import "../App.css";
+// import { useNavigate } from "react-router-dom";
+// import Quess from "../Images/q1.png";
+// import WhatsApp from "../Images/whatsappcion.png";
+// import React, { useState, useEffect } from "react";
+
+
+// function Home() {
+//   const navigate = useNavigate();
+//   const [phone, setPhone] = useState("");
+//   const [otp, setOtp] = useState("");
+//   const [step, setStep] = useState(1); // 1 = mobile, 2 = OTP input
+
+//   // ---------------- AUTOFILL FROM URL ----------------
+//   useEffect(() => {
+//     const params = new URLSearchParams(window.location.search);
+//     const contact = params.get("contact_number");
+
+//     console.log("Detected contact number:", contact);
+
+//     if (contact) {
+//       setPhone(contact);
+//     }
+//   }, []);
+
+//   // ---------------- SEND OTP ----------------
+//   const handleSendOtp = async () => {
+//     if (!phone) {
+//       alert("Mobile number missing");
+//       return;
+//     }
+
+//     try {
+//       const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/send", {
+//         phone,
+//       });
+
+//       console.log("OTP Sent:", res.data);
+//       setStep(2); // Show OTP input
+//     } catch (error) {
+//       console.error("Error sending OTP:", error);
+//       alert("Failed to send OTP");
+//     }
+//   };
+
+//   // ---------------- VERIFY OTP ----------------
+//   const handleVerifyOtp = async () => {
+//     try {
+//       const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/verify", {
+//         phone,
+//         otp,
+//       });
+
+//       console.log("OTP Verified:", res.data);
+// localStorage.setItem("loggedIn", "true");
+//       navigate("/OpdRebursement");
+//     } catch (error) {
+//       alert("Invalid OTP");
+//     }
+//   };
+
+//   return (
+//     <div className="App">
+//       <div className="main-content">
+//         <div className="left-section">
+//           <header className="header-section">
+//             <img className="quess" src={Quess} alt="" />
+
+//             <h1>Welcome to Your Health Hub</h1>
+//             <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
+
+//             <div className="login-box">
+
+//               {/* Step 1: Mobile Number */}
+//               {step === 1 && (
+//                 <>
+//                   <input
+//                     type="text"
+//                     value={phone}
+//                     onChange={(e) => setPhone(e.target.value)}
+//                     placeholder="Mobile Number"
+//                     className="mobile-input"
+//                   />
+
+//                   <button className="login-btn" onClick={handleSendOtp}>
+//                     Sign In
+//                   </button>
+//                 </>
+//               )}
+
+//               {/* Step 2: OTP Box */}
+//               {step === 2 && (
+//                 <>
+//                   <input
+//                     type="text"
+//                     value={otp}
+//                     onChange={(e) => setOtp(e.target.value)}
+//                     placeholder="Enter OTP"
+//                     maxLength={6}
+//                     className="mobile-input"
+//                   />
+
+//                   <button className="login-btn" onClick={handleVerifyOtp}>
+//                     Verify OTP
+//                   </button>
+//                 </>
+//               )}
+//             </div>
+//           </header>
+
+//           <section className="whatsapp">
+//             <img
+//               className="whatsapp"
+//               src={WhatsApp}
+//               alt="WhatsApp"
+//               onClick={() => {
+//                 window.open(
+//                   "https://wa.me/918970890228?text=Send%20Hi%20to%20this%20number",
+//                   "_blank"
+//                 );
+//               }}
+//             />
+//           </section>
+//         </div>
+//       </div>
+
+//       {/* Footer */}
+//       <footer className="footer">
+//         <div className="footer-left">
+//           <h2 className="footer-logo">Aayur Care</h2>
+//           <p>Providing smart and hassle-free medical reimbursement for a healthier you.</p>
+//           <p>Copyright © 2025</p>
+//           <p>Powered by Aayur Enterprises</p>
+//         </div>
+
+//         <div className="footer-right">
+//           <div className="footer-section">
+//             <h3>Legal</h3>
+//             <ul>
+//               <li onClick={() => navigate("/websiteterms")}>Website Terms</li>
+//               <li onClick={() => navigate("/aayurcaretermsandcondition")}>AayurCare Terms</li>
+//               <li onClick={() => navigate("refundandcancellation")}>Refund Policy</li>
+//               <li onClick={() => navigate("disclaimer")}>Disclaimer</li>
+//               <li onClick={() => navigate("PrivacyPolicy")}>Privacy Policy</li>
+//             </ul>
+//           </div>
+//         </div>
+//       </footer>
+//     </div>
+//   );
+// }
+// export default Home;
+
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 import Quess from "../Images/q1.png";
 import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 function Home() {
   const navigate = useNavigate();
@@ -177,7 +329,7 @@ function Home() {
     }
   }, []);
 
-  // ---------------- SEND OTP ----------------
+  // ---------------- SEND OTP (FETCH) ----------------
   const handleSendOtp = async () => {
     if (!phone) {
       alert("Mobile number missing");
@@ -185,11 +337,19 @@ function Home() {
     }
 
     try {
-      const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/send", {
-        phone,
+      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone }),
       });
 
-      console.log("OTP Sent:", res.data);
+      const data = await res.json();
+      console.log("OTP Sent:", data);
+
+      if (!res.ok) throw new Error("OTP send failed");
+
       setStep(2); // Show OTP input
     } catch (error) {
       console.error("Error sending OTP:", error);
@@ -197,16 +357,23 @@ function Home() {
     }
   };
 
-  // ---------------- VERIFY OTP ----------------
+  // ---------------- VERIFY OTP (FETCH) ----------------
   const handleVerifyOtp = async () => {
     try {
-      const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/verify", {
-        phone,
-        otp,
+      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone, otp }),
       });
 
-      console.log("OTP Verified:", res.data);
-localStorage.setItem("loggedIn", "true");
+      const data = await res.json();
+      console.log("OTP Verified:", data);
+
+      if (!res.ok) throw new Error("Invalid OTP");
+
+      localStorage.setItem("loggedIn", "true");
       navigate("/OpdRebursement");
     } catch (error) {
       alert("Invalid OTP");
@@ -303,4 +470,5 @@ localStorage.setItem("loggedIn", "true");
     </div>
   );
 }
+
 export default Home;
