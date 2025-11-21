@@ -1200,6 +1200,20 @@ height:300px;
   box-shadow: 0 3px 10px rgba(0, 0, 80, 0.1);
   transition: transform 0.3s ease;
 }
+@media (max-width: 768px) {
+  .plan-container {
+    flex-direction: column;
+    gap: 20px; /* spacing between the stacked cards */
+    align-items: center; /* center the cards horizontally */
+  }
+
+  .plan-card {
+    width: 90%; /* make cards almost full width on mobile */
+    max-width: 350px; /* optional: limit max width */
+    height: auto; /* let height adjust automatically */
+  }
+}
+
 /* .whatsapp
 {
   width:60px;
