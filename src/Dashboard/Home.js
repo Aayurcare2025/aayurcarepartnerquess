@@ -206,8 +206,7 @@ function Home() {
       });
 
       console.log("OTP Verified:", res.data);
-      alert("Login Successful");
-
+localStorage.setItem("loggedIn", "true");
       navigate("/OpdRebursement");
     } catch (error) {
       alert("Invalid OTP");

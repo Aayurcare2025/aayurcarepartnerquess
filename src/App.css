@@ -7,13 +7,13 @@ body {
  .navbar {
   display: flex;
   align-items: center;
+
   justify-content: space-between;
   background-color: #002b80;
   padding: 8px 30px;
   color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 50, 0.3);
 }
-
 
 
 
@@ -92,7 +92,7 @@ body {
 }
 .quess
 {
-  width:550px;
+  width:500px;
   height:auto;
 }
 @media (max-width: 768px) {
@@ -107,6 +107,82 @@ body {
  
 }
 
+
+.header-section h1{
+  font-size:40px;
+}
+
+
+/* Styling for the new two-step view elements */
+
+/* Container for the mobile number and OTP input */
+.login-box {
+    /* Ensures inputs stack nicely */
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px; /* Constrain width for better look */
+    margin: 10px auto; /* Center the box */
+}
+
+/* Base style for all inputs in the box */
+.mobile-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px; /* Added margin to push the button/OTP input down */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Style for the disabled phone number input (Step 2) */
+.mobile-input:disabled {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #555; /* Darker text */
+}
+
+/* Prompt text for OTP input */
+.otp-prompt {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Link to change the number */
+.change-link {
+    color: #002b80; /* Your brand blue */
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+/* The OTP specific input box (optional: make it stand out) */
+.otp-input {
+    border-color: #002b80; 
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 5px; /* Spacing for the OTP digits */
+}
+
+/* The Sign In / Verify OTP button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #002b80;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #001f66;
+}
 .benefits {
   background-color: #ffffff;
   border-left: 6px solid #0033cc;
