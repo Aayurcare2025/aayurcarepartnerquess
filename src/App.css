@@ -97,7 +97,7 @@ body {
 }
 @media (max-width: 768px) {
   .quess {
-    width: 90%; /* or you can use 300px if you prefer a fixed width */
+    width: 95%; /* or you can use 300px if you prefer a fixed width */
   }
 }
 .left-section h1 {
