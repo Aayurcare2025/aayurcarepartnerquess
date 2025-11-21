@@ -99,6 +99,10 @@ body {
   .quess {
     width: 95%; /* or you can use 300px if you prefer a fixed width */
   }
+   .main-content {
+    min-height: 100vh;  /* Increase height — adjust as needed */
+    padding: 20px 20px;
+  }
 }
 .left-section h1 {
   font-size: 3.5rem;
