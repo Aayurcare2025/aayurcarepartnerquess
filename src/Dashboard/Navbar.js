@@ -139,7 +139,7 @@ function Navbar() {
               Medicine Delivery
             </li>
 
-            <li onClick={() => handleNavClick("/support")}>Support</li>
+           
 
             <li onClick={handleLogout}>Sign Out</li>
           </>
