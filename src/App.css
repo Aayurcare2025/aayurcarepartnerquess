@@ -737,24 +737,7 @@ body {
   cursor: pointer;
 }
 
-.footer-link{
-  color: #007bff;         
-  cursor: pointer;         
-  text-decoration: underline; 
-  display: inline-block;   
-  transition: color 0.2s;  
-}
 
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #222; /* Dark background */
-  color: #ddd;
-  padding: 3rem 2rem;
-  flex-wrap: wrap;
-}
 /* Overall Page */
 .login-page {
   min-height: 100vh;
@@ -846,79 +829,72 @@ body {
 }
 
 
-.footer-left {
-  flex: 1;
-  max-width: 400px;
-}
 
-.footer-logo {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
 
-.footer-tagline {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #bbb;
-}
-
-.footer-middle
-{
-  padding-top:30px;
-  justify-content:center;
-  padding-left:150px;
-}
-
-.footer-right {
-  flex: 1;
+/* Footer */
+.footer {
   display: flex;
-  justify-content: flex-end;
-  gap: 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #222;
+  color: #ddd;
+  padding: 2.5rem 2rem;
   flex-wrap: wrap;
 }
 
-.footer-section {
-  min-width: 150px;
+/* LEFT SECTION */
+.footer-left {
+  flex: 1;
+  min-width: 200px;
 }
 
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #fff; 
+/* RIGHT SECTION */
+.footer-right {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.footer-section ul {
-  list-style: none;
-  padding: 0;
+/* MAKE LEFT & RIGHT SAME LINE */
+.footer {
+  flex-direction: row;
 }
 
+/* WEBSITE TERMS ALWAYS BLUE */
+.footer-link,
 .footer-section ul li {
-  margin-bottom: 0.5rem;
+  color: #007bff !important;
+    list-style: none !important;  
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: underline;
+  padding-right:50px;
 }
 
-.footer-section ul li a {
-  text-decoration: none;
-  color: #bbb;
-  transition: color 0.3s ease;
+/* HEADER TEXT */
+.footer-logo,
+.footer-section h3 {
+  color: #fff !important;
 }
 
-.footer-section ul li a:hover {
-  color: #4CAF50; 
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* For mobile: keep both sections in one row until very small */
+@media (max-width: 600px) {
   .footer {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
+  .footer-left,
   .footer-right {
-    justify-content: center;
-    margin-top: 2rem;
+    flex: 1;
+  }
+
+  .footer-section ul li {
+    color: #007bff !important; /* still blue */
   }
 }
+
 .b1 
 {
   width:200px;

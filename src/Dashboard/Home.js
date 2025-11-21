@@ -456,8 +456,9 @@ function Home() {
 
         <div className="footer-right">
           <div className="footer-section">
-            <h3>Legal</h3>
+    
             <ul>
+               <h3>Legal</h3>
               <li onClick={() => navigate("/websiteterms")}>Website Terms</li>
               <li onClick={() => navigate("/aayurcaretermsandcondition")}>AayurCare Terms</li>
               <li onClick={() => navigate("refundandcancellation")}>Refund Policy</li>
