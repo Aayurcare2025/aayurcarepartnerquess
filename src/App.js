@@ -21,6 +21,7 @@ import "./App.css"
 import OpdRebursement from "./Dashboard/OpdRebursement";  
 import PaymentFailure from "./Dashboard/PaymentFailure";
 import PaymentSuccess from "./Dashboard/PaymentSuccess";
+import ProtectedRoute from "./Dashboard/ProtectedRoute";
 function App() {
   return (
    <>
@@ -45,14 +46,24 @@ function App() {
        {/* <Route path="/Login" element={<Login/>}></Route> */}
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
       {/* <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route> */}
-      <Route
+      {/* <Route
   path="/OpdRebursement"
   element={localStorage.getItem("loggedIn") === "true" ? <OpdRebursement /> : <Home />}
-/>
+/> */}
+
+
 
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/payment-failure" element={<PaymentFailure />} />
+        <Route
+  path="/OpdRebursement"
+  element={
+    <ProtectedRoute>
+      <OpdRebursement />
+    </ProtectedRoute>
+  }
+/>
     </Routes>
     </>
   );

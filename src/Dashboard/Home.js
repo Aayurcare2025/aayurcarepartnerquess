@@ -371,8 +371,13 @@ function Home() {
       const data = await res.json();
       // console.log("OTP Verified:", data);
 
-     // --------- FIX START ----------
-    if (data?.status !== "success") {
+      // --------- FIX START ----------
+    // if (data?.status !== "success") {
+    //   alert(data?.message || "Invalid OTP");
+    //   return;
+    // }
+
+    if (!data.success && data.status !== "success") {
       alert(data?.message || "Invalid OTP");
       return;
     }
