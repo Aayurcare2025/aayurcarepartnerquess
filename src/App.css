@@ -100,7 +100,7 @@ body {
     width: 95%; /* or you can use 300px if you prefer a fixed width */
   }
    .main-content {
-    min-height: 50vh;  /* Increase height — adjust as needed */
+    min-height: 60vh;  /* Increase height — adjust as needed */
     padding: 20px 20px;
   }
 }
