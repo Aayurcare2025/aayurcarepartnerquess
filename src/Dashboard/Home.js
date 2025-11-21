@@ -369,9 +369,13 @@ function Home() {
       });
 
       const data = await res.json();
-      console.log("OTP Verified:", data);
+      // console.log("OTP Verified:", data);
 
-      if (!res.ok) throw new Error("Invalid OTP");
+     // --------- FIX START ----------
+    if (data?.status !== "success") {
+      alert(data?.message || "Invalid OTP");
+      return;
+    }
 
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("phone", phone)
