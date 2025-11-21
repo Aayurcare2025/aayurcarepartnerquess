@@ -46,6 +46,7 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("loggedIn");
+    localStorage.removeItem("phone")
     navigate("/");
   };
 
@@ -59,6 +60,7 @@ function Navbar() {
         {/* Show these links ONLY after login */}
         {isLoggedIn && (
           <>
+            {/* <li onClick={() => navigate("/profile")}>👤 Profile</li> */}
             <li onClick={() => navigate("/claims")}>Claims</li>
 
             <li

@@ -374,6 +374,7 @@ function Home() {
       if (!res.ok) throw new Error("Invalid OTP");
 
       localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("phone", phone)
       navigate("/OpdRebursement");
     } catch (error) {
       alert("Invalid OTP");
