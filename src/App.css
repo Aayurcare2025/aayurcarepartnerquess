@@ -258,7 +258,7 @@ body {
 .right-section {
  left:30px;
   flex: 0.2;
-  width: 1400px;
+  /* width: 1000px; */
   background-color: #ffffff;
   padding: 5px;
   border-radius: 12px;
