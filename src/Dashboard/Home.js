@@ -316,13 +316,12 @@
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
     const [step, setStep] = useState(1); // 1 = mobile, 2 = OTP input
-const [applicant_Id, setApplicantId] = useState("");
+const [applicant_id, setApplicantId] = useState("");
     // ---------------- AUTOFILL FROM URL ----------------
     useEffect(() => {
       const params = new URLSearchParams(window.location.search);
       const contact = params.get("contact_number");
       const id=params.get("applicant_id");
-
 
       
       console.log("Detected contact number:", contact);
@@ -395,12 +394,12 @@ const [applicant_Id, setApplicantId] = useState("");
         navigate("/OpdRebursement");
 
 
-        //calling applicant ai to fetch details:
+       // calling applicant ai to fetch details:
 
          if (applicant_id) {
       try {
         const dashRes = await fetch(
-          `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_Id}`
+          `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
         );
 
         const dashData = await dashRes.json();
