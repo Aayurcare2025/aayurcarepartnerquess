@@ -92,12 +92,12 @@ import "../App.css";
 
 function Navbar() {
   const navigate = useNavigate();
-  const isLoggedIn = sessionStorage.getItem("loggedIn") === "true";
+  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("loggedIn");
-    sessionStorage.removeItem("phone");
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("phone");
     setIsMenuOpen(false);
     navigate("/");
   };

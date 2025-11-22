@@ -390,27 +390,30 @@ const [applicant_id, setApplicantId] = useState("");
 
 
       //in localstorage even if u reopened 
-        sessionStorage.setItem("loggedIn", "true");
-        sessionStorage.setItem("phone", phone)
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("phone", phone)
+        // localStorage.setItem("loginTime", Date.now().toString());
+        localStorage.setItem("loginTime", Date.now());
+        // --------- FIX END ----------
         navigate("/OpdRebursement");
 
 
        // calling applicant ai to fetch details:
 
-    //      if (applicant_id) {
-    //   try {
-    //     const dashRes = await fetch(
-    //       `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
-    //     );
+         if (applicant_id) {
+      try {
+        const dashRes = await fetch(
+          `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
+        );
 
-    //     const dashData = await dashRes.json();
-    //     console.log("DASH API SAVE RESPONSE:", dashData);
-    //   } catch (dashErr) {
-    //     console.error("Error calling DASH API:", dashErr);
-    //   }
-    // } else {
-    //   console.warn("No applicant_id.");
-    // }
+        const dashData = await dashRes.json();
+        console.log("DASH API SAVE RESPONSE:", dashData);
+      } catch (dashErr) {
+        console.error("Error calling DASH API:", dashErr);
+      }
+    } else {
+      console.warn("No applicant_id.");
+    }
 
 
 

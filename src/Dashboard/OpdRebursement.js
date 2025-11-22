@@ -40,11 +40,37 @@
 
 
 import React from "react";
+import { useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css"; // make sure this CSS file is imported
 
 function OpdRebursement() {
   const navigate = useNavigate();
+useEffect(() => {
+  const loggedIn = localStorage.getItem("loggedIn");
+  const loginTime = localStorage.getItem("loginTime");
+
+  // if no login found → redirect to login page
+  if (!loggedIn || !loginTime) {
+    navigate("/");
+    return;
+  }
+
+  const now = Date.now();
+  const diff = now - Number(loginTime);
+
+  // 30 minutes expiry = 30 * 60 * 1000 = 1800000 ms
+  const expiryTime = 30 * 60 * 1000;
+
+  if (diff > expiryTime) {
+    // login expired → clear storage
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("loginTime");
+    localStorage.removeItem("phone");
+
+    navigate("/"); // go back to login:
+  }
+}, []);
 
   return (
     <div className="right-section">
