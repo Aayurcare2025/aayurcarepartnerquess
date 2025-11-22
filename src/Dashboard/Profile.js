@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import "../App.css"; // optional
+import "../App.css"; 
 
 function Profile() {
   const [data, setData] = useState(null);

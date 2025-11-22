@@ -305,182 +305,183 @@
 // }
 // export default Home;
 
-import "../App.css";
-import { useNavigate } from "react-router-dom";
-import Quess from "../Images/q1.png";
-import WhatsApp from "../Images/whatsappcion.png";
-import React, { useState, useEffect } from "react";
+  import "../App.css";
+  import { useNavigate } from "react-router-dom";
+  import Quess from "../Images/q1.png";
+  import WhatsApp from "../Images/whatsappcion.png";
+  import React, { useState, useEffect } from "react";
 
-function Home() {
-  const navigate = useNavigate();
-  const [phone, setPhone] = useState("");
-  const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(1); // 1 = mobile, 2 = OTP input
+  function Home() {
+    const navigate = useNavigate();
+    const [phone, setPhone] = useState("");
+    const [otp, setOtp] = useState("");
+    const [step, setStep] = useState(1); // 1 = mobile, 2 = OTP input
 
-  // ---------------- AUTOFILL FROM URL ----------------
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const contact = params.get("contact_number");
+    // ---------------- AUTOFILL FROM URL ----------------
+    useEffect(() => {
+      const params = new URLSearchParams(window.location.search);
+      const contact = params.get("contact_number");
 
-    console.log("Detected contact number:", contact);
+      console.log("Detected contact number:", contact);
 
-    if (contact) {
-      setPhone(contact);
-    }
-  }, []);
+      if (contact) {
+        setPhone(contact);
+      }
+    }, []);
 
-  // ---------------- SEND OTP (FETCH) ----------------
-  const handleSendOtp = async () => {
-    if (!phone) {
-      alert("Mobile number missing");
-      return;
-    }
+    // ---------------- SEND OTP (FETCH) ----------------
+    const handleSendOtp = async () => {
+      if (!phone) {
+        alert("Mobile number missing");
+        return;
+      }
 
-    try {
-      // const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
-        const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ phone }),
-      });
+      try {
+        // const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+          const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ phone }),
+        });
 
-      const data = await res.json();
-      console.log("OTP Sent:", data);
+        const data = await res.json();
+        console.log("OTP Sent:", data);
 
-      if (!res.ok) throw new Error("OTP send failed");
+        if (!res.ok) throw new Error("OTP send failed");
 
-      setStep(2); // Show OTP input
-    } catch (error) {
-      console.error("Error sending OTP:", error);
-      alert("Failed to send OTP");
-    }
-  };
+        setStep(2); // Show OTP input
+      } catch (error) {
+        console.error("Error sending OTP:", error);
+        alert("Failed to send OTP");
+      }
+    };
 
-  // ---------------- VERIFY OTP (FETCH) ----------------
-  const handleVerifyOtp = async () => {
-    try {
-      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ phone, otp }),
-      });
+    // ---------------- VERIFY OTP (FETCH) ----------------
+    const handleVerifyOtp = async () => {
+      try {
+        const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ phone, otp }),
+        });
 
-      const data = await res.json();
-      // console.log("OTP Verified:", data);
+        const data = await res.json();
+        // console.log("OTP Verified:", data);
 
-      // --------- FIX START ----------
-    // if (data?.status !== "success") {
-    //   alert(data?.message || "Invalid OTP");
-    //   return;
-    // }
+        // --------- FIX START ----------
+      // if (data?.status !== "success") {
+      //   alert(data?.message || "Invalid OTP");
+      //   return;
+      // }
 
-    if (!data.success && data.status !== "success") {
-      alert(data?.message || "Invalid OTP");
-      return;
-    }
+      if (!data.success && data.status !== "success") {
+        alert(data?.message || "Invalid OTP");
+        return;
+      }
 
-      localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("phone", phone)
-      navigate("/OpdRebursement");
-    } catch (error) {
-      alert("Invalid OTP");
-    }
-  };
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("phone", phone)
+        navigate("/OpdRebursement");
+        
+      } catch (error) {
+        alert("Invalid OTP");
+      }
+    };
 
-  return (
-    <div className="App">
-      <div className="main-content">
-        <div className="left-section">
-          <header className="header-section">
-            <img className="quess" src={Quess} alt="" />
+    return (
+      <div className="App">
+        <div className="main-content">
+          <div className="left-section">
+            <header className="header-section">
+              <img className="quess" src={Quess} alt="" />
 
-            <h1>Welcome to Your Health Hub</h1>
-            <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
+              <h1>Welcome to Your Health Hub</h1>
+              <p className="subtitle">Exclusive OPD reimbursement for Quess employees</p>
 
-            <div className="login-box">
+              <div className="login-box">
 
-              {/* Step 1: Mobile Number */}
-              {step === 1 && (
-                <>
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="Mobile Number"
-                    className="mobile-input"
-                  />
+                {/* Step 1: Mobile Number */}
+                {step === 1 && (
+                  <>
+                    <input
+                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="Mobile Number"
+                      className="mobile-input"
+                    />
 
-                  <button className="login-btn" onClick={handleSendOtp}>
-                    Sign In
-                  </button>
-                </>
-              )}
+                    <button className="login-btn" onClick={handleSendOtp}>
+                      Sign In
+                    </button>
+                  </>
+                )}
 
-              {/* Step 2: OTP Box */}
-              {step === 2 && (
-                <>
-                  <input
-                    type="text"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                    placeholder="Enter OTP"
-                    maxLength={6}
-                    className="mobile-input"
-                  />
+                {/* Step 2: OTP Box */}
+                {step === 2 && (
+                  <>
+                    <input
+                      type="text"
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      placeholder="Enter OTP"
+                      maxLength={6}
+                      className="mobile-input"
+                    />
 
-                  <button className="login-btn" onClick={handleVerifyOtp}>
-                    Verify OTP
-                  </button>
-                </>
-              )}
-            </div>
-          </header>
+                    <button className="login-btn" onClick={handleVerifyOtp}>
+                      Verify OTP
+                    </button>
+                  </>
+                )}
+              </div>
+            </header>
 
-          <section className="whatsapp">
-            <img
-              className="whatsapp"
-              src={WhatsApp}
-              alt="WhatsApp"
-              onClick={() => {
-                window.open(
-                  "https://wa.me/918970890228?text=Send%20Hi%20to%20this%20number",
-                  "_blank"
-                );
-              }}
-            />
-          </section>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-left">
-          <h2 className="footer-logo">Aayur Care</h2>
-          <p>Providing smart and hassle-free medical reimbursement for a healthier you.</p>
-          <p>Copyright © 2025</p>
-          <p>Powered by Aayur Enterprises</p>
-        </div>
-
-        <div className="footer-right">
-          <div className="footer-section">
-    
-            <ul>
-               <h3>Legal</h3>
-              <li onClick={() => navigate("/websiteterms")}>Website Terms</li>
-              <li onClick={() => navigate("/aayurcaretermsandcondition")}>AayurCare Terms</li>
-              <li onClick={() => navigate("refundandcancellation")}>Refund Policy</li>
-              <li onClick={() => navigate("disclaimer")}>Disclaimer</li>
-              <li onClick={() => navigate("PrivacyPolicy")}>Privacy Policy</li>
-            </ul>
+            <section className="whatsapp">
+              <img
+                className="whatsapp"
+                src={WhatsApp}
+                alt="WhatsApp"
+                onClick={() => {
+                  window.open(
+                    "https://wa.me/918970890228?text=Hi%20%2C%20I'm%20interested%20in%20Aayur%20Care%20plans.",
+                    "_blank"
+                  );
+                }}
+              />
+            </section>
           </div>
         </div>
-      </footer>
-    </div>
-  );
-}
 
-export default Home;
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-left">
+            <h2 className="footer-logo">Aayur Care</h2>
+            <p>Providing smart and hassle-free medical reimbursement for a healthier you.</p>
+            <p>Copyright © 2025</p>
+            <p>Powered by Aayur Enterprises</p>
+          </div>
+
+          <div className="footer-right">
+            <div className="footer-section">
+      
+              <ul>
+                <h3>Legal</h3>
+                <li onClick={() => navigate("/websiteterms")}>Website Terms</li>
+                <li onClick={() => navigate("/aayurcaretermsandcondition")}>AayurCare Terms</li>
+                <li onClick={() => navigate("refundandcancellation")}>Refund Policy</li>
+                <li onClick={() => navigate("disclaimer")}>Disclaimer</li>
+                <li onClick={() => navigate("PrivacyPolicy")}>Privacy Policy</li>
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  export default Home;
