@@ -92,13 +92,14 @@ body {
 }
 .quess
 {
-  padding-top:40px;
+  /* padding-top:40px; */
   padding:25x;
   width:600px;
   height:auto;
 }
 @media (max-width: 768px) {
   .quess {
+    padding-top:40px;
     width: 95%; /* or you can use 300px if you prefer a fixed width */
   }
    .main-content {
@@ -106,10 +107,17 @@ body {
     padding: 20px 20px;
   }
 }
+
 .left-section h1 {
   font-size: 3.5rem;
   color: #002b80;
  left:50px;
+
+
+
+
+
+ 
  
 }
 
