@@ -454,7 +454,7 @@ const [applicant_id, setApplicantId] = useState("");
 
 
 
-                    
+
                   </>
                 )}
 
@@ -485,7 +485,7 @@ const [applicant_id, setApplicantId] = useState("");
                 alt="WhatsApp"
                 onClick={() => {
                   window.open(
-                    "https://wa.me/918970890228?text=Hi%20%2C%20I'm%20interested%20in%20Aayur%20Care%20plans.",
+                    "https://wa.me/918970890228?text=Hi",
                     "_blank"
                   );
                 }}
