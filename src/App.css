@@ -101,11 +101,14 @@ body {
   .quess {
     padding-top:100px;
     width: 95%; 
-    padding-bottom:40px;/* or you can use 300px if you prefer a fixed width */
+    padding-bottom:30px;/* or you can use 300px if you prefer a fixed width */
   }
    .main-content {
     min-height: 70vh;  /* Increase height — adjust as needed */
     padding: 20px 20px;
+  }
+  .login-btn{
+    padding-bottom:30px;
   }
 }
 
@@ -113,13 +116,6 @@ body {
   font-size: 4rem;
   color: #002b80;
  left:50px;
-
-
-
-
-
-
- 
 }
 
 
