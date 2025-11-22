@@ -92,12 +92,12 @@ import "../App.css";
 
 function Navbar() {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+  const isLoggedIn = sessionStorage.getItem("loggedIn") === "true";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("phone");
+    sessionStorage.removeItem("loggedIn");
+    sessionStorage.removeItem("phone");
     setIsMenuOpen(false);
     navigate("/");
   };
@@ -138,6 +138,8 @@ function Navbar() {
             <li onClick={handleMedicineDelivery}>
               Medicine Delivery
             </li>
+
+            <li onClick={() =>handleNavClick("/callback")}>Support</li>
 
            
 

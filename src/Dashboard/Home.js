@@ -316,17 +316,22 @@
     const [phone, setPhone] = useState("");
     const [otp, setOtp] = useState("");
     const [step, setStep] = useState(1); // 1 = mobile, 2 = OTP input
-
+const [applicant_Id, setApplicantId] = useState("");
     // ---------------- AUTOFILL FROM URL ----------------
     useEffect(() => {
       const params = new URLSearchParams(window.location.search);
       const contact = params.get("contact_number");
+      const id=params.get("applicant_id");
 
+
+      
       console.log("Detected contact number:", contact);
 
       if (contact) {
         setPhone(contact);
       }
+
+      if (id) setApplicantId(id);
     }, []);
 
     // ---------------- SEND OTP (FETCH) ----------------
@@ -383,9 +388,33 @@
         return;
       }
 
-        localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("phone", phone)
+
+      //in localstorage even if u reopened 
+        sessionStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem("phone", phone)
         navigate("/OpdRebursement");
+
+
+        //calling applicant ai to fetch details:
+
+         if (applicant_id) {
+      try {
+        const dashRes = await fetch(
+          `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_Id}`
+        );
+
+        const dashData = await dashRes.json();
+        console.log("DASH API SAVE RESPONSE:", dashData);
+      } catch (dashErr) {
+        console.error("Error calling DASH API:", dashErr);
+      }
+    } else {
+      console.warn("No applicant_id.");
+    }
+
+
+
+
         
       } catch (error) {
         alert("Invalid OTP");
@@ -394,6 +423,7 @@
 
     return (
       <div className="App">
+
         <div className="main-content">
           <div className="left-section">
             <header className="header-section">
