@@ -374,6 +374,7 @@ const [applicant_id, setApplicantId] = useState("");
         });
 
         const data = await res.json();
+        
         // console.log("OTP Verified:", data);
 
         // --------- FIX START ----------
@@ -396,20 +397,20 @@ const [applicant_id, setApplicantId] = useState("");
 
        // calling applicant ai to fetch details:
 
-         if (applicant_id) {
-      try {
-        const dashRes = await fetch(
-          `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
-        );
+    //      if (applicant_id) {
+    //   try {
+    //     const dashRes = await fetch(
+    //       `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
+    //     );
 
-        const dashData = await dashRes.json();
-        console.log("DASH API SAVE RESPONSE:", dashData);
-      } catch (dashErr) {
-        console.error("Error calling DASH API:", dashErr);
-      }
-    } else {
-      console.warn("No applicant_id.");
-    }
+    //     const dashData = await dashRes.json();
+    //     console.log("DASH API SAVE RESPONSE:", dashData);
+    //   } catch (dashErr) {
+    //     console.error("Error calling DASH API:", dashErr);
+    //   }
+    // } else {
+    //   console.warn("No applicant_id.");
+    // }
 
 
 
