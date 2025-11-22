@@ -100,7 +100,8 @@ body {
 @media (max-width: 768px) {
   .quess {
     padding-top:100px;
-    width: 95%; /* or you can use 300px if you prefer a fixed width */
+    width: 95%; 
+    padding-bottom:50px;/* or you can use 300px if you prefer a fixed width */
   }
    .main-content {
     min-height: 70vh;  /* Increase height — adjust as needed */
