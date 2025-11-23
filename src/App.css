@@ -99,7 +99,7 @@ body {
 }
 @media (max-width: 768px) {
   .quess {
-    padding-top:100px;
+    padding-top:120px;
     width: 95%; 
     padding-bottom:30px;/* or you can use 300px if you prefer a fixed width */
   }

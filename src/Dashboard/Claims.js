@@ -165,7 +165,7 @@ function Claims() {
       if (file) data.append("file", file);
 //https://partner-quess.aayurcare.com
       // 🔗 Update your backend URL
-      const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
+      const res = await fetch("http://localhost:8000/claims/apply", {
         method: "POST",
         body: data,
       });
