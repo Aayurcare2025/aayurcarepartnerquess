@@ -145,10 +145,9 @@ console.log("responses to display:", response);
 
 
       </div>
-              <button className="buynow" onClick={handleBuyNow}>Buy Now</button>
-    </div>
+              <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button>
 
-    
+    </div>
   );
 }
 
