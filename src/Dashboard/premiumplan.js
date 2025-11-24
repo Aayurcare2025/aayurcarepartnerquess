@@ -147,6 +147,8 @@ console.log("responses to display:", response);
       </div>
               <button className="buynow" onClick={handleBuyNow}>Buy Now</button>
     </div>
+
+    
   );
 }
 
