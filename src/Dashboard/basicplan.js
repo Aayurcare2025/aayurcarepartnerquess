@@ -134,10 +134,10 @@ console.log("responses to display:", response);
         </div>
       </div>
 
-      <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button>
+      {/* <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button> */}
 
 
-        {/* <button className="buynow" onClick={handleBuyNow}>Buy Now</button> */}
+        <button className="buynow" onClick={handleBuyNow}>Buy Now</button>
 
 
     </div>
