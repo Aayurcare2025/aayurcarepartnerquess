@@ -136,6 +136,7 @@ console.log("responses to display:", response);
 
      <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button>
      
+     
 
        
 
