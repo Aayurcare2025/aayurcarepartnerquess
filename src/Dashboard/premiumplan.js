@@ -4,6 +4,7 @@ function PremiumPlan() {
 
 const handleBuyNow = async () => {
   try {
+     const applicant=JSON.parse(localStorage.getItem("applicant"))
     const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
     // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
@@ -13,9 +14,12 @@ const handleBuyNow = async () => {
 
         //from api we need to call firstname and gmail 
         // firstname: "Kirthana",             
-        // email: "kirthana@gmail.com",  
+        // email: "kirthana@gmail.com", 
+        first_name:applicant?.first_name || "",
+        email:applicant?.email_id || "",
+        phonenumber:applicant?.contact_no ||"", 
         amount: "400",                    
-        productinfo: "Basic Health Plan", 
+        productinfo: "Premium Plan", 
       }),
     });
 console.log("responses to display:", response);

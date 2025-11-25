@@ -34,7 +34,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/Basicplan" element={<Basicplan />} />
       <Route path="/PremiumPlan" element={<PremiumPlan/>}></Route>
-      <Route path="/Claims" element={<Claims/>}></Route>
+      {/* <Route path="/Claims" element={<Claims/>}></Route> */}
       <Route path="/Disclaimer" element={<Disclaimer/>}></Route>
       <Route path="/aayurcaretermsandcondition" element={<AayurcareTerms/>}></Route>
       <Route path="/refundandcancellation" element={<RefundPolicy/>}></Route>
@@ -44,7 +44,7 @@ function App() {
       <Route path="/signin" element={<SignIn/>}></Route>
       <Route path="/forgot-password" element={<ForgotPassword/>}></Route>
        <Route path="/reset-password" element={<ResetPassword />} />
-       <Route path="/callback" element={<CallbackForm/>}/>
+       {/* <Route path="/callback" element={<CallbackForm/>}/> */}
        {/* <Route path="/Login" element={<Login/>}></Route> */}
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
       {/* <Route path="/OpdRebursement"  element={<OpdRebursement/>} ></Route> */}
@@ -52,7 +52,19 @@ function App() {
   path="/OpdRebursement"
   element={localStorage.getItem("loggedIn") === "true" ? <OpdRebursement /> : <Home />}
 /> */}
+<Route path="/Claims" element={
+    <ProtectedRoute>
+      <Claims />
+    </ProtectedRoute>
+  }></Route>
 
+
+<Route path="/callback" element={
+    <ProtectedRoute>
+      <CallbackForm />
+    </ProtectedRoute>
+  }/>
+  
 
 
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}

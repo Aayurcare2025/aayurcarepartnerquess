@@ -5,24 +5,41 @@ function Basicplan() {
   // const user = JSON.parse(localStorage.getItem("user"));
 const handleBuyNow = async () => {
   try {
+//http://localhost:7000
+    const applicant=JSON.parse(localStorage.getItem("applicant"))
+    // const response = await fetch("http://localhost:7000/payment/initiate", {
     const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
-    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+      // body: JSON.stringify({
 
-        //from api we need to call firstname and gmail 
-        firstname: "",             
-        email: "",
+     
+      //   // firstname: user.firstname || "",             
+      //   // email:user.email || "",
+      //   // phonenumber:user.phonenumber || "",
+      //   amount: "200",                    
+      //   productinfo: "Basic Health Plan", 
+      // }),
 
-        amount: "200",                    
-        productinfo: "Basic Health Plan", 
-      }),
+
+    body: JSON.stringify({
+    firstname: applicant?.first_name || "",
+    email: applicant?.email_id || "",
+    phonenumber: applicant?.contact_no ||"",
+    amount: "200",
+    productinfo: "Basic Plan"
+}),
+
+
+
+
+
+
     });
 console.log("responses to display:", response);
     const data = await response.json();
-    console.log("PayU Response:", data);
+    
 
     // Auto-submit form to PayU
     const form = document.createElement("form");
@@ -40,6 +57,7 @@ console.log("responses to display:", response);
     }
 
     document.body.appendChild(form);
+
     form.submit();
   } catch (error) {
     console.error("Payment error:", error);

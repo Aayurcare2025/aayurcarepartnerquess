@@ -617,6 +617,14 @@ function Home() {
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("phone", phone);
       localStorage.setItem("loginTime", Date.now());
+     
+    //  localStorage.setItem("applicant",JSON.stringify(apiResponse)) ;
+
+
+    
+
+
+
 
       navigate("/OpdRebursement");
 
@@ -652,6 +660,8 @@ function Home() {
             <div className="login-box">
               {/* Step 1: Mobile Number */}
               {step === 1 && (
+
+          
                 <>
                   <input
                     type="text"
