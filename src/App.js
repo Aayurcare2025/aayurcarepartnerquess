@@ -22,8 +22,22 @@ import OpdRebursement from "./Dashboard/OpdRebursement";
 import PaymentFailure from "./Dashboard/PaymentFailure";
 import PaymentSuccess from "./Dashboard/PaymentSuccess";
 import ProtectedRoute from "./Dashboard/ProtectedRoute";
-function App() {
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { initGA, trackPage } from "./analytics";  
 
+function App() {
+ const location = useLocation();
+
+  useEffect(() => {
+    initGA(); // Initialize once
+  }, []);
+
+//we can track 
+
+    useEffect(() => {
+    trackPage(location.pathname + location.search); // Track each route change
+  }, [location]);
 
   return (
    <>
