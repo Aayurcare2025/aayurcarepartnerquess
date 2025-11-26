@@ -576,7 +576,7 @@ function Home() {
       alert("Mobile number missing");
       return;
     }
-
+//https://api.partner-quess.aayurcare.com
     try {
       const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
         method: "POST",
