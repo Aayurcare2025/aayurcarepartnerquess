@@ -23,7 +23,17 @@ import PaymentFailure from "./Dashboard/PaymentFailure";
 import PaymentSuccess from "./Dashboard/PaymentSuccess";
 import ProtectedRoute from "./Dashboard/ProtectedRoute";
 function App() {
+ const location = useLocation();
 
+  useEffect(() => {
+    initGA(); // Initialize once
+  }, []);
+
+//we can track 
+
+    useEffect(() => {
+    trackPage(location.pathname + location.search); // Track each route change
+  }, [location]);
 
   return (
    <>
