@@ -563,10 +563,9 @@ function Home() {
         localStorage.removeItem("loginTime");
         alert("Session expired. Please login again.");
         setStep(1);
-      } else {
-        // Still valid
-        navigate("/OpdRebursement");
-      }
+      } 
+
+      //else removed
     }
   }, [navigate]);
 
@@ -607,6 +606,7 @@ function Home() {
       });
 
       const data = await res.json();
+      
 
       if (!data.success && data.status !== "success") {
         alert(data?.message || "Invalid OTP");
@@ -618,15 +618,21 @@ function Home() {
       localStorage.setItem("phone", phone);
       localStorage.setItem("loginTime", Date.now());
      
-    //  localStorage.setItem("applicant",JSON.stringify(apiResponse)) ;
-
+     localStorage.setItem("applicant",JSON.stringify(data)) ;
+  
+     
+     if (data.success) {
+  localStorage.setItem("loggedIn", "true");
+  localStorage.setItem("loginTime", Date.now());
+  navigate("/OpdRebursement");
+}
 
     
 
 
 
 
-      navigate("/OpdRebursement");
+      // navigate("/OpdRebursement");
 
       // CALL APPLICANT DASH API
       if (applicant_id) {
