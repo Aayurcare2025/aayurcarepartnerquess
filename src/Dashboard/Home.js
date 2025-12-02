@@ -594,6 +594,8 @@ function Home() {
     }
   };
 
+  //https://api.partner-quess.aayurcare.com
+
   // ---------------- VERIFY OTP ----------------
   const handleVerifyOtp = async () => {
     try {
@@ -604,6 +606,8 @@ function Home() {
         },
         body: JSON.stringify({ phone, otp }),
       });
+
+      
 
       const data = await res.json();
       
@@ -635,6 +639,7 @@ function Home() {
       // navigate("/OpdRebursement");
 
       // CALL APPLICANT DASH API
+      
       if (applicant_id) {
         try {
           const dashRes = await fetch(
