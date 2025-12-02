@@ -141,9 +141,10 @@ function CallbackForm() {
 
     try {
       // const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
-        const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback/otp/callback", {
+        const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
         method: "POST",
         headers: {
+        
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
