@@ -25,6 +25,7 @@ const handleBuyNow = async () => {
 
     body: JSON.stringify({
     firstname: applicant?.first_name || "",
+    applicantId:applicant?.applicantId || "",
     email: applicant?.email_id || "",
     phonenumber: applicant?.contact_no ||"",
     amount: "200",

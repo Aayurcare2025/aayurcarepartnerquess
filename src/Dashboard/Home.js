@@ -577,7 +577,7 @@ function Home() {
     }
 //https://api.partner-quess.aayurcare.com
     try {
-      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+      const res = await fetch("http://localhost:8000/otp/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -18,6 +18,7 @@ const handleBuyNow = async () => {
         first_name:applicant?.first_name || "",
         email:applicant?.email_id || "",
         phonenumber:applicant?.contact_no ||"", 
+        applicantId:applicant?.applicantId || "",
         amount: "400",                    
         productinfo: "Premium Plan", 
       }),
