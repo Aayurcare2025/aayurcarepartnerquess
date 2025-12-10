@@ -544,6 +544,10 @@ function Home() {
     const contact = params.get("contact_number");
     const id = params.get("applicant_id");
 
+     
+    //white callers
+    //gig workers
+    //
     if (contact) setPhone(contact);
     if (id) setApplicantId(id);
 

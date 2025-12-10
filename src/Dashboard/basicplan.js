@@ -89,6 +89,7 @@ console.log("responses to display:", response);
           <p>5.Yoga Consultation and Therapy discounts up to 15-30%</p>
         </div>
 
+       
 
         <div className="basicplan-box">
           <h2>Medicines & Pharmacy</h2>
