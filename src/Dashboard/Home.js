@@ -538,6 +538,7 @@ function Home() {
   const [applicant_id, setApplicantId] = useState("");
 
   // ---------------- AUTOFILL FROM URL ----------------
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const contact = params.get("contact_number");
@@ -545,7 +546,14 @@ function Home() {
 
     if (contact) setPhone(contact);
     if (id) setApplicantId(id);
+
+
+
+    
   }, []);
+
+
+
 
   // ---------------- LOGIN SESSION CHECK (10 MINUTES) ----------------
   useEffect(() => {
@@ -591,6 +599,9 @@ function Home() {
       setStep(2);
     } catch (error) {
       alert("Failed to send OTP");
+
+
+
     }
   };
 

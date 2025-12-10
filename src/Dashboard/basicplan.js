@@ -89,12 +89,6 @@ console.log("responses to display:", response);
           <p>5.Yoga Consultation and Therapy discounts up to 15-30%</p>
         </div>
 
-        <div className="basicplan-box">
-          <h2>Mental Wellness Workshops</h2>
-          <p>1.Access to self-help diagnosis and tools</p>
-          <p>24/7 emergency helpline</p>
-          <p>3.Disease risk predictions and mitigation tools</p>
-        </div>
 
         <div className="basicplan-box">
           <h2>Medicines & Pharmacy</h2>
