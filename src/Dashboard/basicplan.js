@@ -13,7 +13,7 @@ const handleBuyNow = async () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // body: JSON.stringify({
-
+//data 
      
       //   // firstname: user.firstname || "",             
       //   // email:user.email || "",
