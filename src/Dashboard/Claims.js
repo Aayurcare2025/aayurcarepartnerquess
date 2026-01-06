@@ -479,8 +479,8 @@ function Claims() {
         }
       });
 
-      const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
-      // const res = await fetch("http://localhost:7000/claims/apply", {
+      // const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
+      const res = await fetch("http://localhost:7000/claims/apply", {
         method: "POST",
         body: data,
       });
@@ -566,7 +566,8 @@ function Claims() {
               style={styles.fileInput}
               type="file"
               onChange={handleBankDocChange}
-              accept=".pdf,.jpg,.jpeg,.png"
+              // accept=".pdf,.jpg,.jpeg,.png"
+              accept="image/*,.pdf"
             />
             <small style={styles.hint}>Accepted: PDF, JPG, PNG (Max 5MB)</small>
             {formData.bankDocument && (
@@ -904,6 +905,7 @@ const styles = {
     color: "white",
     border: "none",
     borderRadius: "8px",
+
     fontSize: "16px",
     fontWeight: "600",
     cursor: "pointer",
