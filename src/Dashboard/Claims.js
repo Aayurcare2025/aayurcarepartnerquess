@@ -479,8 +479,8 @@ function Claims() {
         }
       });
 
-      // const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
-      const res = await fetch("http://localhost:7000/claims/apply", {
+      const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
+      // const res = await fetch("http://localhost:7000/claims/apply", {
         method: "POST",
         body: data,
       });
