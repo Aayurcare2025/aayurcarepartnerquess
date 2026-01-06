@@ -1358,3 +1358,27 @@ h2 {
     padding: 20px 0;
   }
 }
+
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 5000;
+
+  /* CENTER CONTENT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+    transform: translateY(-150px);
+}
+

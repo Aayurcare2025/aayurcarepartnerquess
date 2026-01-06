@@ -524,6 +524,9 @@
 //   export default Home;
 
 
+
+
+
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 import Quess from "../Images/q1.png";
@@ -544,6 +547,10 @@ function Home() {
     const contact = params.get("contact_number");
     const id = params.get("applicant_id");
 
+     
+    //white callers
+    //gig workers
+    //
     if (contact) setPhone(contact);
     if (id) setApplicantId(id);
 

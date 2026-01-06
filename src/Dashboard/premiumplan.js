@@ -1,13 +1,18 @@
 import "../App.css";
-
+import { useState } from "react";
 function PremiumPlan() {
-
-const handleBuyNow = async () => {
+ const[showPopup,setShowPopup]=useState(false);
+  const[email,setEmail]=useState("");
+  const handleEmailSubmit = () => {
+    setShowPopup(false);
+    handleBuyNow(email);   // send email
+  }
+const handleBuyNow = async (enteredEmail) => {
   try {
      const applicant=JSON.parse(localStorage.getItem("applicant"))
     const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
-    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
-
+    // const response = await fetch("http://localhost:7000/payment/initiate", {
+      
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -15,11 +20,12 @@ const handleBuyNow = async () => {
         //from api we need to call firstname and gmail 
         // firstname: "Kirthana",             
         // email: "kirthana@gmail.com", 
-        first_name:applicant?.first_name || "",
-        email:applicant?.email_id || "",
-        phonenumber:applicant?.contact_no ||"", 
-        applicantId:applicant?.applicantId || "",
-        amount: "400",                    
+        firstname:applicant?.first_name || "",
+        applicant_id:applicant?.applicant_id || "",
+    email: enteredEmail||applicant?.email_id || "",
+        // email:applicant?.email_id || "",
+        phone:applicant?.contact_no ||"", 
+        amount: "400.00",                    
         productinfo: "Premium Plan", 
       }),
     });
@@ -32,15 +38,31 @@ console.log("responses to display:", response);
     form.method = "POST";
     // form.action = data.payment_url; // returned from backend
  form.action = data.payuUrl;
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = data[key];
-        form.appendChild(input);
-      }
-    }
+   const fields = {
+    key: data.key,
+    txnid: data.txnid,
+    amount: data.amount,
+    productinfo: data.productinfo,
+    firstname: data.firstname,
+    email: data.email,
+    phone: data.phone,
+  //  udf1: data.applicant_id, 
+    udf1: data.udf1 || '',
+    udf2: '',
+    udf3: '',
+    udf4: '',
+    udf5: '',     
+    surl: data.surl,
+    furl: data.furl,
+    hash: data.hash,
+  };
+    Object.keys(fields).forEach((key) => {
+  const input = document.createElement("input");
+  input.type = "hidden";
+  input.name = key;
+  input.value = fields[key];
+  form.appendChild(input);
+});
 
     document.body.appendChild(form);
     form.submit();
@@ -143,7 +165,28 @@ console.log("responses to display:", response);
 
 
       </div>
-              <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button>
+              {/* <button  className="floating-buy-now"  onClick={handleBuyNow}>Buy Now</button> */}
+               <button className="floating-buy-now" onClick={() => setShowPopup(true)}>
+        Buy Now
+      </button>
+
+        {/* <button className="buynow" onClick={handleBuyNow}>Buy Now</button> */}
+  {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h3>Enter Email</h3>
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <button onClick={handleEmailSubmit}>Submit</button>
+          </div>
+        </div>
+      )}  
 
     </div>
   );

@@ -78,9 +78,6 @@ function App() {
       <CallbackForm />
     </ProtectedRoute>
   }/>
-  
-
-
        {/* <Route path="/DetailsOfBasicPlan"  element={<DetailsOfBasicPlan/>}></Route> */}
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/payment-failure" element={<PaymentFailure />} />
