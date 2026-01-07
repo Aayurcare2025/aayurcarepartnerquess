@@ -566,14 +566,22 @@ function Claims() {
             />
 
             <label style={styles.label}>Upload Bank Document *</label>
-            <input
+            {/* <input
               style={styles.fileInput}
               type="file"
               onChange={handleBankDocChange}
               // accept=".pdf,.jpg,.jpeg,.png"
               accept="image/*,.pdf"
               capture
-            />
+            /> */}
+                <input
+            style={styles.fileInput}     
+        type="file"
+         onChange={handleBankDocChange}
+        accept=".jpg,.jpeg,.png,.pdf"
+        multiple={false}
+      />
+
             <small style={styles.hint}>Accepted: PDF, JPG, PNG (Max 5MB)</small>
             {formData.bankDocument && (
               <small style={styles.fileName}>✓ {formData.bankDocument.name}</small>
@@ -679,6 +687,7 @@ function Claims() {
               onChange={handleChange}
               placeholder="Confirm account number"
             />
+
 
             <label style={styles.label}>IFSC Code *</label>
             <input
