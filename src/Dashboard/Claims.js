@@ -407,6 +407,7 @@ function Claims() {
   
   const prevStep = () => setStep((prev) => prev - 1);
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -435,6 +436,8 @@ function Claims() {
     updated[index].file = file;
     setServices(updated);
   };
+
+
 
   const handleSubmit = async () => {
     // Validation
@@ -488,7 +491,7 @@ function Claims() {
       if (!res.ok) throw new Error("Failed to submit claim");
 
       const result = await res.json();
-      console.log("✅ Claim submitted:", result);
+      console.log("Claim submitted:", result);
       alert("Claim submitted successfully!");
 
       // Reset form
@@ -551,6 +554,7 @@ function Claims() {
               placeholder="Enter 10-digit phone number"
             />
 
+     
             <label style={styles.label}>Email ID</label>
             <input
               style={styles.input}
@@ -568,6 +572,7 @@ function Claims() {
               onChange={handleBankDocChange}
               // accept=".pdf,.jpg,.jpeg,.png"
               accept="image/*,.pdf"
+              capture
             />
             <small style={styles.hint}>Accepted: PDF, JPG, PNG (Max 5MB)</small>
             {formData.bankDocument && (
