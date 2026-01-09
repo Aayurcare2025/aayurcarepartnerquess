@@ -413,9 +413,29 @@ function Claims() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleBankDocChange = (e) => {
-    setFormData((prev) => ({ ...prev, bankDocument: e.target.files[0] }));
-  };
+
+  // const handleBankDocChange = (e) => {
+  //   setFormData((prev) => ({ ...prev, bankDocument: e.target.files[0] }));
+  // };
+
+
+
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+
+const handleBankDocChange = (e) => {
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  if (file.size > MAX_FILE_SIZE) {
+    alert("Bank document must be less than 5 MB");
+    e.target.value = ""; // reset file input
+    return;
+  }
+
+  setFormData((prev) => ({ ...prev, bankDocument: file }));
+};
+
 
   const addService = () => {
     setServices([...services, { type: "", file: null }]);
@@ -431,11 +451,20 @@ function Claims() {
     setServices(updated);
   };
 
-  const updateServiceFile = (index, file) => {
-    const updated = [...services];
-    updated[index].file = file;
-    setServices(updated);
-  };
+const updateServiceFile = (index, file) => {
+  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+
+  if (!file) return;
+
+  if (file.size > MAX_FILE_SIZE) {
+    alert("Service document must be less than 5 MB");
+    return;
+  }
+
+  const updated = [...services];
+  updated[index].file = file;
+  setServices(updated);
+};
 
 
 
@@ -510,7 +539,7 @@ function Claims() {
       setServices([]);
       setStep(1);
     } catch (err) {
-      console.error("❌ Error submitting claim:", err);
+      console.error("❌ Error submitting claim:", err.message ||err);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -574,6 +603,7 @@ function Claims() {
               accept="image/*,.pdf"
               capture
             /> */}
+
                 <input
             style={styles.fileInput}     
         type="file"
@@ -582,7 +612,7 @@ function Claims() {
         multiple={false}
       />
 
-            <small style={styles.hint}>Accepted: PDF, JPG, PNG (Max 5MB)</small>
+            <small style={styles.hint}>Accepted: JPG, PNG (Max 5MB)</small>
             {formData.bankDocument && (
               <small style={styles.fileName}>✓ {formData.bankDocument.name}</small>
             )}

@@ -546,7 +546,7 @@ function Home() {
     const params = new URLSearchParams(window.location.search);
     const contact = params.get("contact_number");
     const id = params.get("applicant_id");
-
+       
      
     //white callers
     //gig workers
@@ -625,7 +625,7 @@ function Home() {
         body: JSON.stringify({ phone, otp }),
       });
 
-      
+  
 
       const data = await res.json();
       
@@ -641,8 +641,7 @@ function Home() {
       localStorage.setItem("loginTime", Date.now());
      
      localStorage.setItem("applicant",JSON.stringify(data)) ;
-  
-     
+
      if (data.success) {
   localStorage.setItem("loggedIn", "true");
   localStorage.setItem("loginTime", Date.now());
