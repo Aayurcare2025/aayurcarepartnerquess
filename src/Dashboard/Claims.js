@@ -540,7 +540,7 @@ const updateServiceFile = (index, file) => {
       setStep(1);
     } catch (err) {
       console.error("❌ Error submitting claim:", err.message ||err);
-      alert("Something went wrong. Please try again.");
+      // alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }

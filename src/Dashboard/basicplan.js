@@ -30,13 +30,14 @@ const handleBuyNow = async (enteredEmail) => {
 
 
       body: JSON.stringify({
-      firstname: applicant?.first_name || "",
+      firstname: applicant?.first_name || "Customer",
       applicant_id:applicant?.applicant_id || "",
       email: enteredEmail||applicant?.email_id || "",
-      phone: applicant?.contact_no ||"",
+      phone: applicant?.contact_no ||"NA",
       amount: "200.00",
       productinfo: "Basic Plan"
 }),
+
 
     });
 
