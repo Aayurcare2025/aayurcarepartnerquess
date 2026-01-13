@@ -763,7 +763,25 @@ const updateServiceFile = (index, file) => {
                 {loading ? "Submitting..." : "✓ Submit Claim"}
               </button>
             </div>
+            <p style={{
+  marginTop: "15px",
+  fontSize: "14px",
+  color: "#d32f2f",
+  fontWeight: "600",
+  textAlign: "center",
+  background: "#fff0f0",
+  padding: "10px",
+  borderRadius: "8px",
+  border: "1px solid #f5c2c2"
+}}>
+If you experience any technical issues while uploading your claim, please email all required documents and details to <b>Claims@aayurcare.com</b>.
+</p>
+
           </div>
+
+
+
+          
         )}
       </div>
     </div>
