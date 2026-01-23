@@ -18,8 +18,9 @@ const handleBuyNow = async (enteredEmail) => {
     // const response = await fetch("http://localhost:7000/payment/initiate", {
     const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
+
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "c-Type": "application/json" },
       // body: JSON.stringify({
       //   // firstname: user.firstname || "",             
       //   // email:user.email || "",

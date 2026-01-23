@@ -529,10 +529,10 @@
 
 import "../App.css";
 import { useNavigate } from "react-router-dom";
-import Quess from "../Images/q1.png";
+// import Quess from "../Images/q1.png";
 import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect } from "react";
-
+import Quess from "../Images/t1.png"
 function Home() {
   const navigate = useNavigate();
   const [phone, setPhone] = useState("");
@@ -689,19 +689,21 @@ function Home() {
               {/* Step 1: Mobile Number */}
               {step === 1 && (
 
-          
                 <>
-                  <input
+                  {
+                   <input
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Mobile Number"
                     className="mobile-input"
-                  />
+                  /> 
+                  }
 
-                  <button className="login-btn" onClick={handleSendOtp}>
+                  {
+                   <button className="login-btn" onClick={handleSendOtp}>
                     Sign In
-                  </button>
+                  </button> }
                 </>
               )}
 

@@ -94,7 +94,7 @@ body {
 {
   /* padding-top:40px; */
   padding:25x;
-  width:600px;
+  width:1300px;
   height:auto;
 }
 @media (max-width: 768px) {
@@ -1284,7 +1284,7 @@ button:focus {
     background-color: #002b80;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 80px;
+    padding-top: 60px;
     gap: 0;
     transition: right 0.3s ease-in-out;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);

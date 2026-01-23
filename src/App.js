@@ -30,10 +30,10 @@ function App() {
  const location = useLocation();
 
   useEffect(() => {
-    initGA(); // Initialize once
+    initGA(); 
   }, []);
 
-//we can track 
+//we can track :---
 
     useEffect(() => {
     trackPage(location.pathname + location.search); // Track each route change
