@@ -101,6 +101,7 @@ body {
   .quess {
     /* padding-top:130px; */
     width: 100%; 
+    height:80%;
     padding-bottom:30px;/* or you can use 300px if you prefer a fixed width */
   }
    .main-content {
