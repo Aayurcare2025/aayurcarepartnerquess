@@ -92,8 +92,8 @@ body {
 }
 .quess
 {
-  /* padding-top:40px; */
-  padding:25x;
+  margin:0;
+padding:0;  
   width:1300px;
   height:auto;
 }
