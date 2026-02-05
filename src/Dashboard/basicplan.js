@@ -15,8 +15,8 @@ const handleBuyNow = async (enteredEmail) => {
 //http://localhost:7000
     const applicant=JSON.parse(localStorage.getItem("applicant"))
     
-    const response = await fetch("http://localhost:7000/payment/initiate", {
-    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    // const response = await fetch("http://localhost:7000/payment/initiate", {
+    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
 
       method: "POST",
