@@ -15,12 +15,13 @@ const handleBuyNow = async (enteredEmail) => {
 //http://localhost:7000
     const applicant=JSON.parse(localStorage.getItem("applicant"))
     
-    // const response = await fetch("http://localhost:7000/payment/initiate", {
-    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    const response = await fetch("http://localhost:7000/payment/initiate", {
+    // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
 
 
       method: "POST",
-      headers: { "c-Type": "application/json" },
+     headers: { "Content-Type": "application/json" },
+
       // body: JSON.stringify({
       //   // firstname: user.firstname || "",             
       //   // email:user.email || "",
@@ -41,6 +42,8 @@ const handleBuyNow = async (enteredEmail) => {
 
 
     });
+
+    
 
     console.log("responses to display:", response);
     const data = await response.json();
@@ -69,7 +72,6 @@ const handleBuyNow = async (enteredEmail) => {
     firstname: data.firstname,
     email: data.email,
     phone: data.phone,
-  //  udf1: data.applicant_id, 
     udf1: data.udf1 || '',
     udf2: '',
     udf3: '',
@@ -97,6 +99,9 @@ Object.keys(fields).forEach((key) => {
   input.value = fields[key];
   form.appendChild(input);
 });
+
+
+
 
     document.body.appendChild(form);
 
@@ -208,6 +213,8 @@ Object.keys(fields).forEach((key) => {
         <div className="popup-overlay">
           <div className="popup-box">
             <h3>Enter Email</h3>
+
+
 
             <input
               type="email"

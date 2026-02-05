@@ -546,13 +546,26 @@ function Home() {
     const params = new URLSearchParams(window.location.search);
     const contact = params.get("contact_number");
     const id = params.get("applicant_id");
-       
+
+  
+  
      
-    //white callers
-    //gig workers
+    //white callers:
+    //gig workers:
     //
     if (contact) setPhone(contact);
     if (id) setApplicantId(id);
+
+    
+
+
+    
+
+
+    
+
+
+
 
 
 
@@ -572,6 +585,7 @@ function Home() {
       const tenMinutes = 10 * 60 * 1000; // 10 minutes in ms
 
       if (now - loginTime > tenMinutes) {
+
         // Session expired
         localStorage.removeItem("loggedIn");
         localStorage.removeItem("phone");
@@ -640,13 +654,25 @@ function Home() {
       localStorage.setItem("phone", phone);
       localStorage.setItem("loginTime", Date.now());
      
-     localStorage.setItem("applicant",JSON.stringify(data)) ;
+     localStorage.setItem("applicant",JSON.stringify(data));
+
+
+     
+
+
+
+
+
+    
 
      if (data.success) {
   localStorage.setItem("loggedIn", "true");
   localStorage.setItem("loginTime", Date.now());
   navigate("/OpdRebursement");
 }
+
+
+
 
     
 
