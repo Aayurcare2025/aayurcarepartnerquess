@@ -23,7 +23,7 @@
 //     setError("");
 
 //     try {
-//       const response = await fetch("https://api.partner-quess.aayurcare.com/user/callback", {
+//       const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/user/callback", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -140,8 +140,8 @@ function CallbackForm() {
     setError("");
 
     try {
-      // const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
-        const response = await fetch("https://api.partner-quess.aayurcare.com/otp/callback", {
+      // const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/callback", {
+        const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/callback", {
         method: "POST",
         headers: {
         

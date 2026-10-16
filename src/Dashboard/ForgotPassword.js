@@ -10,12 +10,12 @@ function ForgotPassword() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("https://api.partner-quess.aayurcare.com/user/forgot", {
+      const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/user/forgot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           emailOrUsername: email,
-          frontendResetUrl: "https://api.partner-quess.aayurcare.com/reset-password"
+          frontendResetUrl: "https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/reset-password"
         }),
       });
 

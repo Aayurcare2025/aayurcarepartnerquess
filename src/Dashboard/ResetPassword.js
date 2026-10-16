@@ -21,7 +21,7 @@ function ResetPassword() {
     }
     setLoading(true);
     try {
-      const response = await fetch("https://api.partner-quess.aayurcare.com/user/reset", {
+      const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/user/reset", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

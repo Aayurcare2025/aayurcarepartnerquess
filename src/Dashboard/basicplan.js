@@ -16,7 +16,7 @@ const handleBuyNow = async (enteredEmail) => {
     const applicant=JSON.parse(localStorage.getItem("applicant"))
     
     // const response = await fetch("http://localhost:7000/payment/initiate", {
-    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/payment/initiate", {
 
 
       method: "POST",
@@ -256,7 +256,7 @@ export default Basicplan;
 
 //     const applicant=JSON.parse(localStorage.getItem("applicant"))
 //     const response = await fetch("http://localhost:7000/payment/initiate", {
-//     // const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+//     // const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/payment/initiate", {
 
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },

@@ -167,7 +167,7 @@
 //       // 🔗 Update your backend URL
   
      
-//         //  const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
+//         //  const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/claims/apply", {
 //           const res = await fetch("http://localhost:8000/claims/apply", {
 //         method: "POST",
 //         body: data,
@@ -511,7 +511,7 @@ const updateServiceFile = (index, file) => {
         }
       });
 
-      const res = await fetch("https://api.partner-quess.aayurcare.com/claims/apply", {
+      const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/claims/apply", {
       // const res = await fetch("http://localhost:7000/claims/apply", {
         method: "POST",
         body: data,

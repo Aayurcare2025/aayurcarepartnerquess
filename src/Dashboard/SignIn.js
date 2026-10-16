@@ -73,8 +73,8 @@ function SignIn({setIsLoggedIn }) {
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      //https://api.partner-quess.aayurcare.com
-      const response = await fetch("https://api.partner-quess.aayurcare.com/user/login", {
+      //https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io
+      const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

@@ -185,7 +185,7 @@
 //     }
 
 //     try {
-//       const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/send", {
+//       const res = await axios.post("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/send", {
 //         phone,
 //       });
 
@@ -200,7 +200,7 @@
 //   // ---------------- VERIFY OTP ----------------
 //   const handleVerifyOtp = async () => {
 //     try {
-//       const res = await axios.post("https://api.partner-quess.aayurcare.com/otp/verify", {
+//       const res = await axios.post("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/verify", {
 //         phone,
 //         otp,
 //       });
@@ -341,8 +341,8 @@
 //       }
 
 //       try {
-//         // const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
-//           const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+//         // const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/send", {
+//           const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/send", {
 //           method: "POST",
 //           headers: {
 //             "Content-Type": "application/json",
@@ -365,7 +365,7 @@
 //     // ---------------- VERIFY OTP (FETCH) ----------------
 //     const handleVerifyOtp = async () => {
 //       try {
-//         const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
+//         const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/verify", {
 //           method: "POST",
 //           headers: {
 //             "Content-Type": "application/json",
@@ -403,7 +403,7 @@
 //          if (applicant_id) {
 //       try {
 //         const dashRes = await fetch(
-//           `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
+//           `https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/dash/applicant?applicant_id=${applicant_id}`
 //         );
 
 //         const dashData = await dashRes.json();
@@ -604,9 +604,9 @@ function Home() {
       alert("Mobile number missing");
       return;
     }
-//https://api.partner-quess.aayurcare.com
+//https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io
     try {
-      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/send", {
+      const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -626,12 +626,12 @@ function Home() {
     }
   };
 
-  //https://api.partner-quess.aayurcare.com
+  //https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io
 
   // ---------------- VERIFY OTP ----------------
   const handleVerifyOtp = async () => {
     try {
-      const res = await fetch("https://api.partner-quess.aayurcare.com/otp/verify", {
+      const res = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/otp/verify", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -686,7 +686,7 @@ function Home() {
       if (applicant_id) {
         try {
           const dashRes = await fetch(
-            `https://api.partner-quess.aayurcare.com/dash/applicant?applicant_id=${applicant_id}`
+            `https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/dash/applicant?applicant_id=${applicant_id}`
           );
 
           const dashData = await dashRes.json();

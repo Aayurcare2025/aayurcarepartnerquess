@@ -48,7 +48,7 @@ console.log("SEARCH:", window.location.search);
     console.log("📤 Sending Body:", reqBody);
 
     setLoading(true);
-//https://api.partner-quess.aayurcare.com
+//https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io
     const res = await fetch("http://localhost:8000/otp/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -85,7 +85,7 @@ console.log("SEARCH:", window.location.search);
     console.log("📤 Sending Verify Body:", reqBody);
 
     setLoading(true);
-//https://api.partner-quess.aayurcare.com
+//https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io
     const res = await fetch("http://localhost:8000/otp/verify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

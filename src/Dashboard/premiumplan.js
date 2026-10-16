@@ -10,7 +10,7 @@ function PremiumPlan() {
 const handleBuyNow = async (enteredEmail) => {
   try {
      const applicant=JSON.parse(localStorage.getItem("applicant"))
-    const response = await fetch("https://api.partner-quess.aayurcare.com/payment/initiate", {
+    const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/payment/initiate", {
     // const response = await fetch("http://localhost:7000/payment/initiate", {
       
       method: "POST",
