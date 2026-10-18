@@ -24,7 +24,7 @@ const handleBuyNow = async (enteredEmail) => {
         applicant_id:applicant?.applicant_id || "",
     email: enteredEmail||applicant?.email_id || "",
         // email:applicant?.email_id || "",
-        phone:applicant?.contact_no || localStorage.getItem("phone") || "",
+        phone:(applicant?.contact_no || localStorage.getItem("phone") || "").replace(/\D/g, "").slice(-10),
         amount: "400.00",                    
         productinfo: "Premium Plan", 
       }),
