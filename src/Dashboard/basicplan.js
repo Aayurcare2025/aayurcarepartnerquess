@@ -35,7 +35,7 @@ const handleBuyNow = async (enteredEmail) => {
       firstname: applicant?.first_name || "Customer",
       applicant_id:applicant?.applicant_id || "",
       email: enteredEmail||applicant?.email_id || "",
-      phone: applicant?.contact_no ||"NA",
+      phone: applicant?.contact_no || localStorage.getItem("phone") || "",
       amount: "200.00",
       productinfo: "Basic Plan"
 }),
