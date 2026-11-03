@@ -11,7 +11,7 @@ function AayurcareTerms({goBack}) {
 
         <h1>Terms and Conditions</h1>
         <p>Effective Date</p>
-        <p>May 20,2025</p>
+        <p>November 3, 2026</p>
 
         <h3>Acceptance of Terms</h3>
         <p> By accessing or using our website and services, you acknowledge that you have read, understood, and agreed to be
@@ -50,6 +50,83 @@ function AayurcareTerms({goBack}) {
  <br></br>
  Please note that no refunds are applicable for the services or plans purchased. Reimbursements, if any, will be made
  strictly in accordance with the Company’s Reimbursement Policy</p>
+
+<h3 id="plan-terms">Plan Terms for Essential Care and Enhanced Care (Yearly Plans)</h3>
+<p>These terms apply to the Essential Care and Enhanced Care yearly plans.</p>
+<ol>
+  <li>Plan Contribution: Yearly</li>
+  <li>Family Coverage: 1 Employee + up to 3 Eligible Dependants (1+3)</li>
+  <li>Claim Submission Window: 45 Calendar Days</li>
+  <li>
+    The Plan shall be considered active only upon successful receipt and/or confirmation of the applicable
+    contribution and completion of the required activation process.
+  </li>
+  <li>
+    An employee shall become eligible to submit claims only from the Plan Activation Date, subject to all applicable
+    terms, conditions, limits and exclusions.
+  </li>
+  <li>
+    <h4>Claim Eligibility</h4>
+    <p>An employee may submit a claim only where:</p>
+    <ol type="a">
+      <li>the employee is eligible under the Plan;</li>
+      <li>the Plan has been successfully activated and after one month of waiting period;</li>
+      <li>the relevant expense or eligible event occurred on or after the Activation Date;</li>
+      <li>the expense falls within the benefits covered under the Plan;</li>
+      <li>the claim is submitted within the prescribed claim period; and</li>
+      <li>all required supporting documents and information are provided</li>
+    </ol>
+  </li>
+  <li>
+    <h4>Family Coverage – 1 + 3</h4>
+    <p>
+      7.1 The Plan provides coverage for one (1) Quess Employee and up to three (3) Eligible Dependants, subject to the
+      applicable Plan terms and eligibility requirements.
+    </p>
+    <p>
+      7.2 Eligible dependants may include the employee's spouse, children and/or parents, subject to the applicable
+      eligibility and documentation requirements.
+    </p>
+    <p>7.3 The maximum number of covered dependants shall not exceed three (3) per enrolled employee.</p>
+    <p>
+      7.4 The following family combinations shall be permitted under the Plan, subject to a maximum of three (3)
+      dependants:
+    </p>
+    <ol type="a">
+      <li>Employee + Spouse</li>
+      <li>Employee + Spouse + 1 Child</li>
+      <li>Employee + Spouse + 2 Children</li>
+      <li>Employee + Spouse + Parents – up to 2 Parents</li>
+      <li>Employee + Spouse + 1 Child + 1 Parent</li>
+      <li>Employee + Parents – up to 2 Parents</li>
+      <li>Employee + Parents + 1 Child</li>
+      <li>Employee + Children - up to 2 Children</li>
+      <li>Employee + 2 Children + 1 Parent</li>
+    </ol>
+  </li>
+  <li>
+    The Plan shall not be responsible for any benefit or reimbursement arising prior to activation or before waiting
+    period
+  </li>
+  <li>
+    <h4>Claim Documentation</h4>
+    <p>
+      Each claim must be supported by complete and accurate documentation prescribed under the Plan. Depending on the
+      nature of the claim, documents may include:
+    </p>
+    <ol type="a">
+      <li>Claim form;</li>
+      <li>Employee/member identification;</li>
+      <li>Dependant identification and relationship proof;</li>
+      <li>Valid invoices, bills and receipts;</li>
+      <li>Prescriptions and medical records;</li>
+      <li>Proof of payment;</li>
+      <li>Diagnostic reports or other supporting records; and</li>
+      <li>Any additional information reasonably required for claim assessment.</li>
+    </ol>
+    <p>Submission of documents shall not constitute approval of a claim</p>
+  </li>
+</ol>
 
 
  <h3>Privacy</h3>
