@@ -533,7 +533,7 @@ import { Link, useNavigate } from "react-router-dom";
 import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect, useRef } from "react";
 import Quess from "../Images/t1.png"
-import QuessPortrait from "../Images/signin-portrait.webp";
+import QuessPortrait from "../Images/signin-portrait.jpg";
 import { clearSession, hasExpiredSession, isSessionActive, SIGNED_IN_HOME } from "./session";
 
 import { API_BASE } from "../apiBase";

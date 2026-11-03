@@ -17,7 +17,16 @@
   --si-error-line: #dc2626;
   --si-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  padding-bottom: 64px;
+  /* Fill the visible screen below the 64px navbar, so the footer only shows
+     after scrolling. svh is the height with the browser's address bar shown;
+     older browsers use the vh line. */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  min-height: calc(100vh - 64px);
+  min-height: calc(100svh - 64px);
+  padding-bottom: 24px;
   background: var(--si-bg);
   color: var(--si-text);
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -48,7 +57,8 @@
 .si-card {
   width: calc(100% - 32px);
   max-width: 420px;
-  margin: 24px auto 0;
+  /* Centred in the space below the banner */
+  margin: auto;
   padding: 24px;
   background: var(--si-card);
   border: 1px solid rgba(17, 24, 39, 0.08);
@@ -272,7 +282,6 @@
 
 @media (min-width: 640px) {
   .si-card {
-    margin-top: 40px;
     padding: 32px;
   }
 }
