@@ -38,31 +38,7 @@ function OpdRebursement() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("loggedIn");
-    const loginTime = localStorage.getItem("loginTime");
-
-    // If no login found → redirect to login page
-    if (!loggedIn || !loginTime) {
-      navigate("/");
-      return;
-    }
-
-    const now = Date.now();
-    const diff = now - Number(loginTime);
-
-    // 30 minutes expiry = 1800000 ms
-    const expiryTime = 30 * 60 * 1000;
-
-    if (diff > expiryTime) {
-      // login expired → clear storage
-      localStorage.removeItem("loggedIn");
-      localStorage.removeItem("loginTime");
-      localStorage.removeItem("phone");
-
-      navigate("/"); // go back to login
-    }
-  }, [navigate]);
+  // Sign-in is checked by ProtectedRoute, which wraps this page.
 
   // While the dialog is open: focus the email field, close on Escape and stop
   // the page behind it from scrolling.

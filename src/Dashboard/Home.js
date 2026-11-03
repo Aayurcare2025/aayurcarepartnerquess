@@ -533,6 +533,7 @@ import { useNavigate } from "react-router-dom";
 import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect } from "react";
 import Quess from "../Images/t1.png"
+import { clearSession, hasExpiredSession, isSessionActive, SIGNED_IN_HOME } from "./session";
 function Home() {
   const navigate = useNavigate();
   const [phone, setPhone] = useState("");
@@ -577,24 +578,19 @@ function Home() {
 
   // ---------------- LOGIN SESSION CHECK (10 MINUTES) ----------------
   useEffect(() => {
-    const loggedIn = localStorage.getItem("loggedIn");
-    const loginTime = localStorage.getItem("loginTime");
+    if (hasExpiredSession()) {
+      clearSession();
+      alert("Session expired. Please login again.");
+      setStep(1);
+      return;
+    }
 
-    if (loggedIn && loginTime) {
-      const now = Date.now();
-      const tenMinutes = 10 * 60 * 1000; // 10 minutes in ms
-
-      if (now - loginTime > tenMinutes) {
-
-        // Session expired
-        localStorage.removeItem("loggedIn");
-        localStorage.removeItem("phone");
-        localStorage.removeItem("loginTime");
-        alert("Session expired. Please login again.");
-        setStep(1);
-      } 
-
-      //else removed
+    // Already signed in: skip the phone number screen. A Quess link carrying
+    // an applicant's details still shows it, so that person can sign in fresh.
+    const params = new URLSearchParams(window.location.search);
+    const hasQuessLink = params.has("contact_number") || params.has("applicant_id");
+    if (isSessionActive() && !hasQuessLink) {
+      navigate(SIGNED_IN_HOME, { replace: true });
     }
   }, [navigate]);
 

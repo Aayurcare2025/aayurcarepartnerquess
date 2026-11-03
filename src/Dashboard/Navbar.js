@@ -1,153 +1,136 @@
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import aayurMark from "../Images/aayur-mark.png";
+import { clearSession, isSessionActive, SIGNED_IN_HOME } from "./session";
+import "./Navbar.css";
 
+const MEDICINE_DELIVERY_URL = "https://link.mypillo.in/kckszz";
 
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// // import Aayurcareicon from "../Images/aayuricon.jpg";
-// import "../App.css";
+// Shown only when signed in. Medicine delivery is a partner site, so it is a
+// plain link rather than an app route.
+const SIGNED_IN_LINKS = [
+  { label: "Home", to: SIGNED_IN_HOME },
+  { label: "Claims", to: "/Claims" },
+  { label: "Medicine delivery", href: MEDICINE_DELIVERY_URL },
+  { label: "Support", to: "/callback" },
+];
 
-// function Navbar() {
-//   const navigate = useNavigate();
-
-//   return (
-//     <nav className="navbar">
-//       <div className="logo" onClick={() => navigate("/")}>
-//         {/* <img src={Aayurcareicon} alt="logo" /> */}
-//         {/* <span className="brand-name">AayurCare</span> */}
-//       </div>
-
-      
-//       <div className="auth-links">
-//         <li onClick={()=>navigate("/")}>Home</li>
-//          <li onClick={() => navigate("/claims")}>Claims</li>
-//          <li 
-//   onClick={() => window.location.href = "https://link.mypillo.in/kckszz"} 
-//   style={{ cursor: "pointer" }}
-// >
-//   Medicine Delivery
-// </li>
-// <li>Support</li>
-//          {/* <li onClick={() => navigate("/Login")}>Login</li> */}
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-
-
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import "../App.css";
-
-// function Navbar() {
-//   const navigate = useNavigate();
-//   const isLoggedIn = localStorage.getItem("loggedIn") === "true";
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("loggedIn");
-//     localStorage.removeItem("phone")
-//     navigate("/");
-//   };
-
-//   return (
-//     <nav className="navbar">
-//       <div className="logo" onClick={() => navigate("/")}></div>
-
-//       <div className="auth-links">
-//         <li onClick={() => navigate("/")}>Home</li>
-
-//         {/* Show these links ONLY after login */}
-//         {isLoggedIn && (
-//           <>
-//             {/* <li onClick={() => navigate("/profile")}>👤 Profile</li> */}
-//             <li onClick={() => navigate("/claims")}>Claims</li>
-
-//             <li
-//               onClick={() =>
-//                 (window.location.href = "https://link.mypillo.in/kckszz")
-//               }
-//               style={{ cursor: "pointer" }}
-//             >
-//               Medicine Delivery
-//             </li>
-
-//             <li onClick={() => navigate("/support")}>Support</li>
-
-//             <li onClick={handleLogout}>
-//               Sign Out
-//             </li>
-//           </>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../App.css";
+function lastFourDigits(phone) {
+  const digits = (phone || "").replace(/\D/g, "");
+  return digits.length >= 4 ? digits.slice(-4) : "";
+}
 
 function Navbar() {
   const navigate = useNavigate();
-  const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+  const location = useLocation();
+  const headerRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedIn");
-    localStorage.removeItem("phone");
+  // Read on every render: the navbar re-renders on each route change, which is
+  // when signing in, signing out and session expiry take effect.
+  const signedIn = isSessionActive();
+  const phoneEnding = signedIn ? lastFourDigits(localStorage.getItem("phone")) : "";
+
+  // Close the mobile menu after navigating.
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Close the mobile menu on Escape or a tap outside it.
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    const onPointerDown = (event) => {
+      if (!headerRef.current?.contains(event.target)) setIsMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("mousedown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("mousedown", onPointerDown);
+    };
+  }, [isMenuOpen]);
+
+  const handleSignOut = () => {
+    clearSession();
     setIsMenuOpen(false);
     navigate("/");
   };
 
-  const handleNavClick = (path) => {
-    setIsMenuOpen(false);
-    navigate(path);
-  };
-
-  const handleMedicineDelivery = () => {
-    setIsMenuOpen(false);
-    window.location.href = "https://link.mypillo.in/kckszz";
-  };
-
   return (
-    <nav className="navbar">
-      <div className="logo" onClick={() => handleNavClick("/")}></div>
+    <header className="topbar" ref={headerRef}>
+      <div className="topbar-inner">
+        <Link to={signedIn ? SIGNED_IN_HOME : "/"} className="topbar-brand" aria-label="Aayur Care home">
+          <span className="topbar-mark">
+            <img src={aayurMark} alt="" width="28" height="28" />
+          </span>
+          <span className="topbar-name">Aayur Care</span>
+        </Link>
 
-      {/* Hamburger Icon */}
-      <div 
-        className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      {/* Navigation Links */}
-      <div className={`auth-links ${isMenuOpen ? 'active' : ''}`}>
-        <li onClick={() => handleNavClick("/")}>Home</li>
-
-        {/* Show these links ONLY after login */}
-        {isLoggedIn && (
+        {signedIn && (
           <>
-            <li onClick={() => handleNavClick("/claims")}>Claims</li>
+            <nav
+              id="topbar-menu"
+              className={`topbar-menu${isMenuOpen ? " is-open" : ""}`}
+              aria-label="Main"
+            >
+              <ul className="topbar-links">
+                {SIGNED_IN_LINKS.map((link) => (
+                  <li key={link.label}>
+                    {link.href ? (
+                      <a className="topbar-link" href={link.href}>
+                        {link.label}
+                        <ArrowUpRight size={14} strokeWidth={1.5} aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <NavLink
+                        to={link.to}
+                        className={({ isActive }) => `topbar-link${isActive ? " is-active" : ""}`}
+                      >
+                        {link.label}
+                      </NavLink>
+                    )}
+                  </li>
+                ))}
+              </ul>
 
-            <li onClick={handleMedicineDelivery}>
-              Medicine Delivery
-            </li>
+              <div className="topbar-account">
+                {phoneEnding && (
+                  <span className="topbar-phone">
+                    <span className="topbar-sr">Signed in, number ending </span>
+                    <span aria-hidden="true">•••• </span>
+                    {phoneEnding}
+                  </span>
+                )}
+                <button type="button" className="topbar-signout" onClick={handleSignOut}>
+                  Sign out
+                </button>
+              </div>
+            </nav>
 
-            <li onClick={() =>handleNavClick("/callback")}>Support</li>
-
-           
-
-            <li onClick={handleLogout}>Sign Out</li>
+            <button
+              type="button"
+              className="topbar-toggle"
+              aria-expanded={isMenuOpen}
+              aria-controls="topbar-menu"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              {isMenuOpen ? (
+                <X size={20} strokeWidth={1.5} aria-hidden="true" />
+              ) : (
+                <Menu size={20} strokeWidth={1.5} aria-hidden="true" />
+              )}
+            </button>
           </>
         )}
       </div>
-    </nav>
+    </header>
   );
 }
 

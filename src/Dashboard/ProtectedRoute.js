@@ -8,27 +8,14 @@
 
 
 import { Navigate } from "react-router-dom";
+import { isSessionActive } from "./session";
 
+// Sends signed-out or expired users to the sign-in screen. Home clears an
+// expired session there and tells the user it ran out.
 function ProtectedRoute({ children }) {
-  const loggedIn = localStorage.getItem("loggedIn");
-  const loginTime = localStorage.getItem("loginTime");
-
-  if (!loggedIn || !loginTime) {
+  if (!isSessionActive()) {
     return <Navigate to="/" replace />;
   }
-
-  const tenMinutes = 10 * 60 * 1000;
-  const now = Date.now();
-
-  if (now - loginTime > tenMinutes) {
-    // session expired
-    localStorage.clear();
-    return <Navigate to="/" replace />;
-  }
-
-
-
-
 
   return children;
 }
