@@ -1,0 +1,282 @@
+/* Sign-in page (mobile number and OTP). Scoped under .si-page (not .signin, which the old
+   username/password page uses in App.css) so the older
+   .login-box / .login-btn / .left-section rules in App.css don't apply. Uses
+   the same neutrals and navy accent as the plans page. */
+
+.si-page {
+  --si-bg: #f5f7fa;
+  --si-card: #ffffff;
+  --si-text: #111827;
+  --si-text-2: #4b5565;
+  --si-muted: #6b7487;
+  --si-line: rgba(17, 24, 39, 0.14);
+  --si-navy: #002b80;
+  --si-navy-hover: #001f5c;
+  --si-navy-soft: #eef2fa;
+  --si-error: #b91c1c;
+  --si-error-line: #dc2626;
+  --si-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  padding-bottom: 64px;
+  background: var(--si-bg);
+  color: var(--si-text);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.si-page *,
+.si-page *::before,
+.si-page *::after {
+  box-sizing: border-box;
+}
+
+.si-page :where(h1, p) {
+  margin: 0;
+  padding: 0;
+}
+
+.si-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.si-card {
+  width: calc(100% - 32px);
+  max-width: 420px;
+  margin: 24px auto 0;
+  padding: 24px;
+  background: var(--si-card);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+.si-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--si-text);
+}
+
+.si-lede {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--si-text-2);
+}
+
+.si-number {
+  color: var(--si-text);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.si-notice {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--si-navy-soft);
+  color: var(--si-navy);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.si-label {
+  display: block;
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--si-text);
+}
+
+/* Mobile number: fixed +91 prefix and the digits in one field */
+.si-phone {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin-top: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--si-line);
+  border-radius: 10px;
+  transition: border-color 160ms var(--si-ease);
+}
+
+.si-phone:focus-within {
+  border-color: var(--si-navy);
+  outline: 2px solid rgba(0, 43, 128, 0.25);
+  outline-offset: 1px;
+}
+
+.si-phone.is-invalid {
+  border-color: var(--si-error-line);
+}
+
+.si-prefix {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 12px;
+  border-right: 1px solid var(--si-line);
+  color: var(--si-text-2);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.si-phone input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 12px;
+  border: 0;
+  background: transparent;
+  color: var(--si-text);
+  font: inherit;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+}
+
+/* OTP: one field (so phones can fill it from the SMS), digits spaced out */
+.si-otp {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-top: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--si-line);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--si-text);
+  font: inherit;
+  font-size: 24px;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 160ms var(--si-ease);
+}
+
+.si-otp:focus {
+  border-color: var(--si-navy);
+  outline: 2px solid rgba(0, 43, 128, 0.25);
+  outline-offset: 1px;
+}
+
+.si-otp.is-invalid {
+  border-color: var(--si-error-line);
+}
+
+.si-hint,
+.si-error {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.si-hint {
+  color: var(--si-muted);
+}
+
+.si-error {
+  color: var(--si-error);
+}
+
+.si-btn {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  margin-top: 24px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--si-navy);
+  color: #ffffff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 160ms var(--si-ease), transform 120ms var(--si-ease);
+}
+
+.si-btn:hover:not(:disabled) {
+  background: var(--si-navy-hover);
+}
+
+.si-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.si-btn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.si-btn:focus-visible,
+.si-link:focus-visible,
+.si-legal a:focus-visible {
+  outline: 2px solid var(--si-navy);
+  outline-offset: 2px;
+}
+
+.si-link {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--si-navy);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.si-link:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.si-resend {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--si-text-2);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.si-legal {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--si-muted);
+  text-align: center;
+}
+
+.si-legal a {
+  color: var(--si-text-2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (min-width: 640px) {
+  .si-card {
+    margin-top: 40px;
+    padding: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .si-btn,
+  .si-phone,
+  .si-otp {
+    transition: none;
+  }
+}
