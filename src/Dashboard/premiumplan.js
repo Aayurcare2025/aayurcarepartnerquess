@@ -1,5 +1,6 @@
 import "../App.css";
 import { useState } from "react";
+import { startPayUCheckout } from "./payuCheckout";
 function PremiumPlan() {
  const[showPopup,setShowPopup]=useState(false);
   const[email,setEmail]=useState("");
@@ -9,67 +10,16 @@ function PremiumPlan() {
   }
 const handleBuyNow = async (enteredEmail) => {
   try {
-     const applicant=JSON.parse(localStorage.getItem("applicant"))
-    const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/payment/initiate", {
-    // const response = await fetch("http://localhost:7000/payment/initiate", {
-      
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-
-        //from api we need to call firstname and gmail 
-        // firstname: "Kirthana",             
-        // email: "kirthana@gmail.com", 
-        firstname:applicant?.first_name || "",
-        applicant_id:applicant?.applicant_id || "",
-    email: enteredEmail||applicant?.email_id || "",
-        // email:applicant?.email_id || "",
-        phone:(applicant?.contact_no || localStorage.getItem("phone") || "").replace(/\D/g, "").slice(-10),
-        amount: "400.00",                    
-        productinfo: "Premium Plan", 
-      }),
-    });
-console.log("responses to display:", response);
-    const data = await response.json();
-    console.log("PayU Response:", data);
-
-    // Auto-submit form to PayU
-    const form = document.createElement("form");
-    form.method = "POST";
-    // form.action = data.payment_url; // returned from backend
- form.action = data.payuUrl;
-   const fields = {
-    key: data.key,
-    txnid: data.txnid,
-    amount: data.amount,
-    productinfo: data.productinfo,
-    firstname: data.firstname,
-    email: data.email,
-    phone: data.phone,
-  //  udf1: data.applicant_id, 
-    udf1: data.udf1 || '',
-    udf2: '',
-    udf3: '',
-    udf4: '',
-    udf5: '',     
-    surl: data.surl,
-    furl: data.furl,
-    hash: data.hash,
-  };
-    Object.keys(fields).forEach((key) => {
-  const input = document.createElement("input");
-  input.type = "hidden";
-  input.name = key;
-  input.value = fields[key];
-  form.appendChild(input);
-});
-
-    document.body.appendChild(form);
-    form.submit();
+    const applicant = JSON.parse(localStorage.getItem("applicant") || "null");
+    const email = (enteredEmail || applicant?.email_id || "").trim();
+    // The backend sets the price for "Premium Plan" and starts the PayU payment.
+    await startPayUCheckout({ productinfo: "Premium Plan", email });
   } catch (error) {
     console.error("Payment error:", error);
+    alert(error.message);
   }
 };
+
 
   return (
     <div className="basicplan">

@@ -1,5 +1,6 @@
 import "../App.css";
 import { useState } from "react";
+import { startPayUCheckout } from "./payuCheckout";
 function Basicplan() {
 
   const[showPopup,setShowPopup]=useState(false);
@@ -12,104 +13,16 @@ function Basicplan() {
   // const user = JSON.parse(localStorage.getItem("user"));
 const handleBuyNow = async (enteredEmail) => {
   try {
-//http://localhost:7000
-    const applicant=JSON.parse(localStorage.getItem("applicant"))
-    
-    // const response = await fetch("http://localhost:7000/payment/initiate", {
-    const response = await fetch("https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io/payment/initiate", {
-
-
-      method: "POST",
-     headers: { "Content-Type": "application/json" },
-
-      // body: JSON.stringify({
-      //   // firstname: user.firstname || "",             
-      //   // email:user.email || "",
-      //   // phonenumber:user.phonenumber || "",
-      //   amount: "200",                    
-      //   productinfo: "Basic Health Plan", 
-      // }),
-
-
-      body: JSON.stringify({
-      firstname: applicant?.first_name || "Customer",
-      applicant_id:applicant?.applicant_id || "",
-      email: enteredEmail||applicant?.email_id || "",
-      phone: (applicant?.contact_no || localStorage.getItem("phone") || "").replace(/\D/g, "").slice(-10),
-      amount: "200.00",
-      productinfo: "Basic Plan"
-}),
-
-
-    });
-
-    
-
-    console.log("responses to display:", response);
-    const data = await response.json();
-    
-
-    // Auto-submit form to PayU
-    const form = document.createElement("form");
-    form.method = "POST";
-    // form.action = data.payment_url; // returned from backend
- form.action = data.payuUrl;
-
-    // for (const key in data) {
-    //   if (data.hasOwnProperty(key)) {
-    //     const input = document.createElement("input");
-    //     input.type = "hidden";
-    //     input.name = key;
-    //     input.value = data[key];
-    //     form.appendChild(input);
-    //   }
-    // }
-  const fields = {
-    key: data.key,
-    txnid: data.txnid,
-    amount: data.amount,
-    productinfo: data.productinfo,
-    firstname: data.firstname,
-    email: data.email,
-    phone: data.phone,
-    udf1: data.udf1 || '',
-    udf2: '',
-    udf3: '',
-    udf4: '',
-    udf5: '',     
-    surl: data.surl,
-    furl: data.furl,
-    hash: data.hash,
-  };
-
-
-// const debug=true;
-
-// console.log("PayU Form Fields:", fields);
-
-// if(debug)
-// {
-//   return ;
-// }
-
-Object.keys(fields).forEach((key) => {
-  const input = document.createElement("input");
-  input.type = "hidden";
-  input.name = key;
-  input.value = fields[key];
-  form.appendChild(input);
-});
-
-
-
-
-    document.body.appendChild(form);
-
-    form.submit();
+    const applicant = JSON.parse(localStorage.getItem("applicant") || "null");
+    const email = (enteredEmail || applicant?.email_id || "").trim();
+    // The backend sets the price for "Basic Plan" and starts the PayU payment.
+    await startPayUCheckout({ productinfo: "Basic Plan", email });
   } catch (error) {
     console.error("Payment error:", error);
+    alert(error.message);
   }
 };
+
 
   return (
     //basic plan data

@@ -1,6 +1,7 @@
-// Starts a PayU hosted checkout for a plan. The backend sets the price from the
-// plan name (productinfo), builds the hash and returns the fields PayU expects;
-// this posts them to PayU, which navigates the browser away.
+// Starts a PayU checkout for a plan. The backend sets the price from the plan
+// name (productinfo) and returns either a PayU payment link to open, or the
+// signed fields for PayU's hosted checkout form. Either way the browser leaves
+// for PayU.
 const API_BASE = "https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io";
 
 function readApplicant() {
@@ -30,9 +31,16 @@ export async function startPayUCheckout({ productinfo, email }) {
   });
 
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data.hash || !String(data.payuUrl || "").startsWith("http")) {
-    throw new Error(data.message || "Couldn't start the payment. Try again in a minute");
+  const failure = new Error(data.message || "Couldn't start the payment. Try again in a minute");
+  if (!response.ok) throw failure;
+
+  // Payment link setup (client id / secret): PayU hosts the whole payment page.
+  if (String(data.paymentLink || "").startsWith("https://")) {
+    window.location.assign(data.paymentLink);
+    return;
   }
+
+  if (!data.hash || !String(data.payuUrl || "").startsWith("http")) throw failure;
 
   const fields = {
     key: data.key,
