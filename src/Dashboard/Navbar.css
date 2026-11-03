@@ -37,7 +37,7 @@
   padding: 0 16px;
 }
 
-/* Brand: the Aayur Care mark on a white tile, with the name as real text */
+/* Brand: the Aayurcare mark on a white tile, with the names as real text */
 
 .topbar-brand {
   display: inline-flex;
@@ -67,10 +67,20 @@
 }
 
 .topbar-name {
+  display: inline-flex;
+  align-items: baseline;
   font-size: 17px;
   line-height: 1;
   font-weight: 600;
   letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* The partnership mark between the two names, quieter than the names */
+.topbar-x {
+  margin: 0 6px;
+  font-weight: 400;
+  color: var(--tb-muted);
 }
 
 /* Links and account */

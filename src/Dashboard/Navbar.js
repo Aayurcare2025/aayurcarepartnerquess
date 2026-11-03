@@ -65,11 +65,15 @@ function Navbar() {
   return (
     <header className="topbar" ref={headerRef}>
       <div className="topbar-inner">
-        <Link to={signedIn ? SIGNED_IN_HOME : "/"} className="topbar-brand" aria-label="Aayur Care home">
+        <Link to={signedIn ? SIGNED_IN_HOME : "/"} className="topbar-brand" aria-label="Aayurcare and Quess, home">
           <span className="topbar-mark">
             <img src={aayurMark} alt="" width="28" height="28" />
           </span>
-          <span className="topbar-name">Aayur Care</span>
+          <span className="topbar-name">
+            Aayurcare
+            <span className="topbar-x" aria-hidden="true">×</span>
+            Quess
+          </span>
         </Link>
 
         {signedIn && (
