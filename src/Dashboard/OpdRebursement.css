@@ -1,0 +1,572 @@
+/* OPD reimbursement plans page. Everything is scoped under .opd so it doesn't
+   touch the shared App.css rules (which also style bare h2 elements). */
+
+.opd {
+  /* Neutral page */
+  --opd-bg: #f5f7fa;
+  --opd-card: #ffffff;
+  --opd-text: #111827;
+  --opd-text-2: #4b5565;
+  --opd-muted: #6b7487;
+  --opd-line: rgba(17, 24, 39, 0.08);
+  --opd-line-strong: rgba(17, 24, 39, 0.14);
+
+  /* Brand accent, same navy as the navbar */
+  --opd-navy: #002b80;
+  --opd-navy-soft: #eef2fa;
+
+  /* Festive palette, taken from the Navratri and Diwali banner */
+  --opd-cream: #fdf6e9;
+  --opd-cream-line: rgba(176, 128, 32, 0.28);
+  --opd-gold-line: rgba(185, 134, 42, 0.38);
+  --opd-gold-dash: rgba(185, 134, 42, 0.6);
+  --opd-gold-soft: #f6e5bd;
+  --opd-gold-text: #7a5a1e;
+  --opd-maroon: #7c1d1b;
+  --opd-maroon-hover: #631614;
+  --opd-green: #24543b;
+
+  --opd-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* The perforation notches are cut in this colour, set per section */
+  --opd-notch-bg: var(--opd-bg);
+  --opd-card-line: var(--opd-line-strong);
+  --opd-dash: var(--opd-line-strong);
+
+  min-height: 100vh;
+  padding: 32px 16px 64px;
+  background: var(--opd-bg);
+  color: var(--opd-text);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.opd *,
+.opd *::before,
+.opd *::after {
+  box-sizing: border-box;
+}
+
+/* Low-specificity reset: beats App.css's bare h2 rule (white text, padding)
+   while letting the component classes below set their own margins. */
+.opd :where(h1, h2, h3, p) {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.opd-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Header: title next to the banner on wide screens, stacked on phones */
+
+.opd-hero {
+  display: grid;
+  gap: 24px;
+}
+
+.opd-title {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--opd-text);
+}
+
+.opd-lede {
+  max-width: 34rem;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--opd-text-2);
+}
+
+.opd-banner {
+  display: block;
+  width: 100%;
+  max-width: 631px;
+  overflow: hidden;
+  border: 1px solid var(--opd-line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+  transition: border-color 160ms var(--opd-ease), transform 120ms var(--opd-ease);
+}
+
+.opd-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.opd-banner:hover {
+  border-color: rgba(124, 29, 27, 0.35);
+}
+
+.opd-banner:active {
+  transform: scale(0.99);
+}
+
+.opd-banner:focus-visible {
+  outline: 2px solid var(--opd-maroon);
+  outline-offset: 3px;
+}
+
+/* Sections */
+
+.opd-section {
+  padding: 0;
+}
+
+.opd-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.opd-section-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--opd-text);
+  background: none;
+}
+
+.opd-section-note {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--opd-muted);
+}
+
+.opd-festive {
+  --opd-notch-bg: var(--opd-cream);
+  padding: 20px 16px;
+  background: var(--opd-cream);
+  border: 1px solid var(--opd-cream-line);
+  border-radius: 20px;
+  scroll-margin-top: 24px;
+}
+
+.opd-festive .opd-section-title {
+  color: var(--opd-maroon);
+}
+
+.opd-festive .opd-section-note {
+  color: var(--opd-gold-text);
+}
+
+.opd-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Plan cards */
+
+.opd-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: var(--opd-card);
+  border: 1px solid var(--opd-card-line);
+  border-radius: 12px;
+}
+
+.opd-card--yearly {
+  --opd-card-line: var(--opd-gold-line);
+  --opd-dash: var(--opd-gold-dash);
+  border-top: 4px solid var(--opd-strip);
+}
+
+.opd-card--green {
+  --opd-strip: var(--opd-green);
+}
+
+.opd-card--maroon {
+  --opd-strip: var(--opd-maroon);
+}
+
+.opd-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 24px;
+}
+
+.opd-card-name {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--opd-text);
+  background: none;
+}
+
+.opd-card--yearly .opd-card-name {
+  color: var(--opd-strip);
+}
+
+.opd-tag {
+  flex: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--opd-gold-soft);
+  color: var(--opd-maroon);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.opd-figure-label {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--opd-muted);
+}
+
+.opd-perforation + .opd-figure-label {
+  margin-top: 0;
+}
+
+.opd-price {
+  margin-top: 4px;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--opd-text);
+}
+
+.opd-period {
+  margin-left: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--opd-text-2);
+}
+
+.opd-limit {
+  margin-top: 4px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--opd-text);
+}
+
+.opd-card--yearly .opd-limit {
+  color: var(--opd-maroon);
+}
+
+.opd-covers {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--opd-text-2);
+}
+
+/* Receipt tear line between what you pay and what you get back. It spans the
+   card edge to edge, with a half-circle notch cut into each side. */
+.opd-perforation {
+  position: relative;
+  margin: 20px -20px;
+  border-top: 2px dashed var(--opd-dash);
+}
+
+.opd-perforation::before,
+.opd-perforation::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--opd-card-line);
+  border-radius: 50%;
+  background: var(--opd-notch-bg);
+}
+
+.opd-perforation::before {
+  left: -9px;
+  clip-path: inset(0 0 0 50%);
+}
+
+.opd-perforation::after {
+  right: -9px;
+  clip-path: inset(0 50% 0 0);
+}
+
+/* Buttons */
+
+.opd-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  margin-top: 24px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 160ms var(--opd-ease),
+    border-color 160ms var(--opd-ease),
+    color 160ms var(--opd-ease),
+    transform 120ms var(--opd-ease);
+}
+
+.opd-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.opd-btn:focus-visible {
+  outline: 2px solid var(--opd-navy);
+  outline-offset: 2px;
+}
+
+.opd-btn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.opd-btn--festive {
+  background: var(--opd-maroon);
+  color: #ffffff;
+}
+
+.opd-btn--festive:hover:not(:disabled) {
+  background: var(--opd-maroon-hover);
+}
+
+.opd-btn--festive:focus-visible {
+  outline-color: var(--opd-maroon);
+}
+
+.opd-btn--secondary {
+  background: var(--opd-card);
+  border-color: rgba(0, 43, 128, 0.28);
+  color: var(--opd-navy);
+}
+
+.opd-btn--secondary:hover {
+  background: var(--opd-navy-soft);
+  border-color: rgba(0, 43, 128, 0.45);
+}
+
+.opd-btn--ghost {
+  width: auto;
+  background: transparent;
+  border-color: var(--opd-line-strong);
+  color: var(--opd-text-2);
+}
+
+.opd-btn--ghost:hover:not(:disabled) {
+  background: var(--opd-bg);
+}
+
+.opd-footnote {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--opd-muted);
+}
+
+/* Email dialog */
+
+.opd-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(17, 24, 39, 0.45);
+  animation: opd-fade 160ms var(--opd-ease);
+}
+
+.opd-dialog {
+  width: 100%;
+  max-width: 440px;
+  padding: 24px;
+  background: var(--opd-card);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  animation: opd-rise 220ms var(--opd-ease);
+}
+
+.opd-dialog-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--opd-text);
+  background: none;
+}
+
+.opd-dialog-summary {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  color: var(--opd-text-2);
+}
+
+.opd-dialog form {
+  margin-top: 20px;
+}
+
+.opd-field-label {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--opd-text);
+}
+
+.opd-input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  margin-top: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--opd-line-strong);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--opd-text);
+  font: inherit;
+  font-size: 16px;
+  transition: border-color 160ms var(--opd-ease);
+}
+
+.opd-input:focus {
+  border-color: var(--opd-navy);
+  outline: 2px solid rgba(0, 43, 128, 0.25);
+  outline-offset: 1px;
+}
+
+.opd-input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.opd-error {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #b91c1c;
+}
+
+.opd-dialog-hint {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--opd-muted);
+}
+
+.opd-dialog-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.opd-dialog-actions .opd-btn--festive {
+  flex: 1;
+}
+
+@keyframes opd-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opd-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Larger screens */
+
+@media (min-width: 640px) {
+  .opd {
+    padding: 48px 24px 80px;
+  }
+
+  .opd-inner {
+    gap: 48px;
+  }
+
+  /* One left edge for the header, both sections and the footnote */
+  .opd-hero,
+  .opd-section,
+  .opd-footnote {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .opd-festive {
+    padding: 32px;
+  }
+
+  .opd-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opd-card {
+    padding: 24px;
+  }
+
+  .opd-perforation {
+    margin: 24px -24px;
+  }
+
+  .opd-dialog-backdrop {
+    align-items: center;
+  }
+}
+
+@media (min-width: 640px) {
+  .opd-title {
+    font-size: 32px;
+  }
+}
+
+/* Side by side only when the text column gets enough room for a two-line title */
+@media (min-width: 1120px) {
+  .opd-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    align-items: center;
+    gap: 48px;
+  }
+
+  .opd-title {
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opd-dialog-backdrop,
+  .opd-dialog {
+    animation: none;
+  }
+
+  .opd-btn,
+  .opd-banner,
+  .opd-input {
+    transition: none;
+  }
+}
