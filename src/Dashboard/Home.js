@@ -535,7 +535,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Quess from "../Images/t1.png"
 import { clearSession, hasExpiredSession, isSessionActive, SIGNED_IN_HOME } from "./session";
 
-const API_BASE = "https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io";
+import { API_BASE } from "../apiBase";
 const RESEND_SECONDS = 30;
 
 // Keeps digits only, so a pasted "+91 98765 43210" becomes "9876543210".

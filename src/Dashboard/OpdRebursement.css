@@ -149,7 +149,8 @@
   background: var(--opd-cream);
   border: 1px solid var(--opd-cream-line);
   border-radius: 20px;
-  scroll-margin-top: 24px;
+  /* Clear the 64px sticky navbar when the banner scrolls here */
+  scroll-margin-top: 80px;
 }
 
 .opd-festive .opd-section-title {
@@ -247,6 +248,26 @@
   font-size: 15px;
   font-weight: 400;
   color: var(--opd-text-2);
+}
+
+/* Regular price, struck through before the festive price */
+.opd-was {
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--opd-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Read by screen readers only (they don't announce strikethrough) */
+.opd-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .opd-limit {

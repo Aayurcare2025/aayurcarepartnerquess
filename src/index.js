@@ -4,6 +4,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { captureAttribution } from './attribution';
+
+// Save Quess link and campaign parameters before anything can redirect.
+captureAttribution();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 

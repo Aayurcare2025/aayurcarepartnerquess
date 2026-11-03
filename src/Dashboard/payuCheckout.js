@@ -2,7 +2,11 @@
 // name (productinfo) and returns either a PayU payment link to open, or the
 // signed fields for PayU's hosted checkout form. Either way the browser leaves
 // for PayU.
-const API_BASE = "https://4lxmjt45zon6pu5yrlcuouu6.200.234.44.53.sslip.io";
+import { API_BASE } from "../apiBase";
+import { getAttribution } from "../attribution";
+
+// Read by the payment success page to report the purchase to analytics.
+export const PENDING_PURCHASE_KEY = "pendingPurchase";
 
 function readApplicant() {
   try {
@@ -27,12 +31,25 @@ export async function startPayUCheckout({ productinfo, email }) {
       phone,
       firstname: applicant.first_name || "Customer",
       applicant_id: applicant.applicant_id || "",
+      // Campaign that brought this person, saved with the payment.
+      ...getAttribution(),
     }),
   });
 
   const data = await response.json().catch(() => ({}));
   const failure = new Error(data.message || "Couldn't start the payment. Try again in a minute");
   if (!response.ok) throw failure;
+
+  if (data.txnid) {
+    try {
+      localStorage.setItem(
+        PENDING_PURCHASE_KEY,
+        JSON.stringify({ transactionId: data.txnid, plan: productinfo, amount: data.amount, startedAt: Date.now() }),
+      );
+    } catch {
+      // Analytics only; the payment works without it.
+    }
+  }
 
   // Payment link setup (client id / secret): PayU hosts the whole payment page.
   if (String(data.paymentLink || "").startsWith("https://")) {

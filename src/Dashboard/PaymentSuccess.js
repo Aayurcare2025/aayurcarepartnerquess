@@ -31,10 +31,30 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import { trackPurchase } from "../analytics";
+import { PENDING_PURCHASE_KEY } from "./payuCheckout";
+
+// The backend only sends people here after PayU confirms the payment, so report
+// the purchase started at checkout. Once only, and not if it's hours old.
+function reportPurchaseOnce() {
+  try {
+    const pending = JSON.parse(localStorage.getItem(PENDING_PURCHASE_KEY) || "null");
+    localStorage.removeItem(PENDING_PURCHASE_KEY);
+    if (pending && Date.now() - pending.startedAt < 2 * 60 * 60 * 1000) {
+      trackPurchase(pending);
+    }
+  } catch {
+    // Analytics only.
+  }
+}
 
 function PaymentSuccess() {
   const navigate = useNavigate();
   const [countdown, setCountdown] = useState(5);
+
+  useEffect(() => {
+    reportPurchaseOnce();
+  }, []);
 
   useEffect(() => {
     // countdown interval

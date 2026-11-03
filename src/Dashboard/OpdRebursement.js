@@ -6,9 +6,11 @@ import "./OpdRebursement.css";
 
 // Yearly plans are bought straight from this page. productinfo must match a
 // plan name the backend knows, since the backend sets the price from it.
+// regularPrice is shown struck through: 12 months of the matching monthly plan
+// (Basic ₹200, Premium ₹400), which is what the festive price saves ~17% on.
 const YEARLY_PLANS = [
-  { id: "essential", name: "Essential Care", productinfo: "Essential Care", price: 1999, limit: 24000, tone: "green" },
-  { id: "enhanced", name: "Enhanced Care", productinfo: "Enhanced Care", price: 3999, limit: 48000, tone: "maroon" },
+  { id: "essential", name: "Essential Care", productinfo: "Essential Care", price: 1999, regularPrice: 2400, limit: 24000, tone: "green" },
+  { id: "enhanced", name: "Enhanced Care", productinfo: "Enhanced Care", price: 3999, regularPrice: 4800, limit: 48000, tone: "maroon" },
 ];
 
 // Monthly plans keep their own benefit pages, which handle the purchase.
@@ -141,6 +143,11 @@ function OpdRebursement() {
 
                 <p className="opd-figure-label">Festive price</p>
                 <p className="opd-price">
+                  <s className="opd-was">
+                    <span className="opd-sr">Regular price </span>
+                    {formatINR(plan.regularPrice)}
+                  </s>
+                  <span className="opd-sr">, now </span>
                   {formatINR(plan.price)}
                   <span className="opd-period">/year</span>
                 </p>
