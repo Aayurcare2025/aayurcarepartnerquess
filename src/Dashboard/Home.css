@@ -35,6 +35,10 @@
   padding: 0;
 }
 
+.si-art {
+  display: block;
+}
+
 .si-banner {
   display: block;
   width: 100%;
@@ -270,6 +274,38 @@
   .si-card {
     margin-top: 40px;
     padding: 32px;
+  }
+}
+
+/* Desktop: tall artwork on the left, the form centred on the right, filling
+   the screen below the 64px navbar */
+@media (min-width: 960px) {
+  .si-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: calc(100vh - 64px);
+    padding-bottom: 0;
+  }
+
+  .si-art {
+    position: relative;
+  }
+
+  /* Cover the column, cropping the plain gradient at the top and bottom and
+     keeping the logos and the doctor scene (about 18%-74% of the image) */
+  .si-banner {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 38%;
+  }
+
+  .si-card {
+    align-self: center;
+    justify-self: center;
+    width: calc(100% - 64px);
+    margin: 48px 32px;
   }
 }
 

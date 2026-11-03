@@ -533,6 +533,7 @@ import { Link, useNavigate } from "react-router-dom";
 import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect, useRef } from "react";
 import Quess from "../Images/t1.png"
+import QuessPortrait from "../Images/signin-portrait.webp";
 import { clearSession, hasExpiredSession, isSessionActive, SIGNED_IN_HOME } from "./session";
 
 import { API_BASE } from "../apiBase";
@@ -709,11 +710,16 @@ function Home() {
   return (
     <div className="App">
       <main className="si-page">
-        <img
-          className="si-banner"
-          src={Quess}
-          alt="Aayur Care and Quess: doctor consultations, lab tests, blood tests, scans and X-rays"
-        />
+        {/* Wide banner above the form on phones; tall artwork beside it on
+            desktop. Each screen downloads only the image it shows. */}
+        <picture className="si-art">
+          <source media="(min-width: 960px)" srcSet={QuessPortrait} />
+          <img
+            className="si-banner"
+            src={Quess}
+            alt="Aayur Care and Quess: doctor consultations, lab tests, blood tests, scans and X-rays"
+          />
+        </picture>
 
         <section className="si-card" aria-labelledby="si-title">
           {step === 1 ? (
