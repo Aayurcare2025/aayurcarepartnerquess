@@ -1,0 +1,132 @@
+/* Site footer. Scoped under .ft; a deep navy that pairs with the navbar. */
+
+.ft {
+  --ft-bg: #0b1633;
+  --ft-text: #ffffff;
+  --ft-text-2: rgba(255, 255, 255, 0.72);
+  --ft-muted: rgba(255, 255, 255, 0.56);
+  --ft-line: rgba(255, 255, 255, 0.12);
+  --ft-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background: var(--ft-bg);
+  color: var(--ft-text-2);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ft *,
+.ft *::before,
+.ft *::after {
+  box-sizing: border-box;
+}
+
+/* Beats App.css's bare h2 rule (padding, radius) without fighting the classes */
+.ft :where(h2, p, ul) {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.ft-inner {
+  display: grid;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 32px;
+}
+
+.ft-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ft-text);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.ft-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.ft-mark img {
+  display: block;
+}
+
+.ft-tagline {
+  max-width: 28rem;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.ft-heading {
+  color: var(--ft-text);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  background: none;
+}
+
+.ft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  list-style: none;
+}
+
+.ft-link {
+  color: var(--ft-text-2);
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: none;
+  transition: color 160ms var(--ft-ease);
+}
+
+.ft-link:hover {
+  color: var(--ft-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ft-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Extra room at the bottom so the floating WhatsApp button never covers text */
+.ft-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 96px;
+  border-top: 1px solid var(--ft-line);
+  color: var(--ft-muted);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .ft-inner {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.4fr);
+    padding: 56px 32px 40px;
+  }
+
+  .ft-bottom {
+    padding: 20px 32px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-link {
+    transition: none;
+  }
+}

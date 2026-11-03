@@ -534,6 +534,7 @@ import WhatsApp from "../Images/whatsappcion.png";
 import React, { useState, useEffect, useRef } from "react";
 import Quess from "../Images/t1.png"
 import QuessPortrait from "../Images/signin-portrait.jpg";
+import SiteFooter from "../Footer/SiteFooter";
 import { clearSession, hasExpiredSession, isSessionActive, SIGNED_IN_HOME } from "./session";
 
 import { API_BASE } from "../apiBase";
@@ -833,28 +834,7 @@ function Home() {
         <img className="whatsapp" src={WhatsApp} alt="" />
       </a>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-left">
-          <h2 className="footer-logo">Aayur Care</h2>
-          <p>Providing smart and hassle-free medical reimbursement for a healthier you.</p>
-          <p>Copyright © 2025</p>
-          <p>Powered by Aayur Enterprises</p>
-        </div>
-
-        <div className="footer-right">
-          <div className="footer-section">
-            <ul>
-              <h3>Legal</h3>
-              <li onClick={() => navigate("/websiteterms")}>Website Terms</li>
-              <li onClick={() => navigate("/aayurcaretermsandcondition")}>AayurCare Terms</li>
-              <li onClick={() => navigate("refundandcancellation")}>Refund Policy</li>
-              <li onClick={() => navigate("disclaimer")}>Disclaimer</li>
-              <li onClick={() => navigate("PrivacyPolicy")}>Privacy Policy</li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
